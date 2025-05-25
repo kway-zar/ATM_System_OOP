@@ -1,5 +1,5 @@
 # ATM_System_OOP
-Finals project for OOP of 1st year National University Students.
+Finals project for OOP of National University 1st year Students.
 # Leader
 Dela Cruz, Jose Guiller R.
 # Members
