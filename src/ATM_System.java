@@ -1,3 +1,6 @@
+
+
+
 class ATM_System {
 
     public double getAccountBalance() {
@@ -8,12 +11,12 @@ class ATM_System {
         this.accountBalance = accountBalance;
     }
 
-    public String getCARD_NUMBER() {
-        return CARD_NUMBER;
+    public String getCARD_NO() {
+        return CARD_NO;
     }
 
-    public void setCARD_NUMBER(String CARD_NUMBER) {
-        this.CARD_NUMBER = CARD_NUMBER;
+    public void setCARD_NO(String CARD_NO) {
+        this.CARD_NO = CARD_NO;
     }
 
     public String getPIN_CODE() {
@@ -25,7 +28,8 @@ class ATM_System {
     }
     
     
-    private String CARD_NUMBER;
+    
+    private String CARD_NO;
     private String PIN_CODE;
     private double accountBalance;
     
