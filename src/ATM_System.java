@@ -41,25 +41,30 @@ class ATM_System {
             this.name = info.name;
             this.accountBalance = info.accountBalance;
                     
-            
-            System.out.println(info.accountBalance);
-    
+//            for(int i = 0; i < userInfo.arrSize();i++){
+//                System.out.println(info.transactions[i].date);
+//                System.out.println(info.transactions[i].time);
+//                System.out.println(info.transactions[i].money);
+//            }
+//             
             
         } catch(Exception e){
             e.printStackTrace();
         }
     }
     
+    
+    
     private String CARD_NO;
     private String PIN_CODE;
     private String name;
     private double accountBalance;
     
-//    public static void main(String[] args){
-//        //demonstration to check the account
-//        ATM_System atm = new ATM_System();
-//        atm.setUserInfo("5", "30");
-//   }
-//    
+    public static void main(String[] args){
+        //demonstration to check the account
+        ATM_System atm = new ATM_System();
+        atm.setUserInfo("2", "3");
+   }
+    
 }
 
