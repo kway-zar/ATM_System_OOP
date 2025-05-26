@@ -54,24 +54,24 @@ class JSON_UserInfo {
     }
     
     
-    public static void main(String[] args){
-    
-        JSON_UserInfo json = new JSON_UserInfo();
-        
-        try{
-            
-            json.setEnteredCardNo("2");
-            json.setEnteredPIN("3");
-            userInfo parsedInfo = json.returnInfo();
-            
-            System.out.println(parsedInfo.accountBalance);
-            
-            
-            
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args){
+//    
+//        JSON_UserInfo json = new JSON_UserInfo();
+//        
+//        try{
+//            
+//            json.setEnteredCardNo("2");
+//            json.setEnteredPIN("3");
+//            userInfo parsedInfo = json.returnInfo();
+//            
+//            System.out.println(parsedInfo.accountBalance);
+//            
+//            
+//            
+//        } catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     public userInfo binarySearch(JSONArray arr, String target, String key, String enteredPIN){
         userInfo info = new userInfo();
