@@ -12,7 +12,10 @@ class JSON_UserInfo {
     
     private String enteredCardNo ="";
     private String enteredPIN = "";
+    private double newBalance = 0;
     int tArraySize = 0;
+    
+    private boolean isGettingBalance = false;
     
     public void setEnteredCardNo(String enteredCardNo) {
         this.enteredCardNo = enteredCardNo;
@@ -20,6 +23,18 @@ class JSON_UserInfo {
 
     public void setEnteredPIN(String enteredPIN) {
         this.enteredPIN = enteredPIN;
+    }
+    public void updateBalance(JSONObject element){
+        
+        element.remove("balance");
+        element.put("balance", newBalance);
+        
+        setIsGettingBalance(false, 0); 
+    }
+    
+    public void setIsGettingBalance(boolean isGettingBalance, double newBalance) {
+        this.isGettingBalance = isGettingBalance;
+        this.newBalance = newBalance;
     }
     public userInfo getUserInfo(){
         userInfo info = new userInfo();
@@ -31,6 +46,7 @@ class JSON_UserInfo {
         }
         return info;
     }
+    
     private userInfo returnInfo() throws Exception{
         userInfo info = new userInfo();
         
@@ -69,26 +85,36 @@ class JSON_UserInfo {
 
                     if(pin.equals(enteredPIN)){
                         
-                        JSONArray t = (JSONArray) element.get("Transaction");
-                        tArraySize = t.size();
-                        userTransactions[] transactions = new userTransactions[tArraySize];
-                        int i = 0;
-                        for(Object tObject: t){
-                            JSONArray tr = (JSONArray)tObject;
-                            transactions[i] = new userTransactions();
-                            transactions[i].date = (String)tr.get(0);
-                            transactions[i].time = (String)tr.get(1);
-                            transactions[i].money = ((Long) tr.get(2)).doubleValue();
-                            i++;
+                        if(isGettingBalance){
                             
+                            updateBalance(element);
+                            break;
                         }
-                        info.CARD_NO = (String) element.get(target);
-                        info.PIN_CODE =(String) element.get("PIN_CODE");
-                        info.accountBalance = (double) element.get("balance");
-                        info.name = (String) element.get("name");
-                        info.transactions = transactions;
+                        
+                        
+                        else{
+                            JSONArray t = (JSONArray) element.get("Transaction");
+                            tArraySize = t.size();
+                            userTransactions[] transactions = new userTransactions[tArraySize];
+                            int i = 0;
+                            for(Object tObject: t){
+                                JSONArray tr = (JSONArray)tObject;
+                                transactions[i] = new userTransactions();
+                                transactions[i].date = (String)tr.get(0);
+                                transactions[i].time = (String)tr.get(1);
+                                transactions[i].money = ((Long) tr.get(2)).doubleValue();
+                                i++;
+
+                            }
+
+                            info.CARD_NO = (String) element.get(target);
+                            info.PIN_CODE =(String) element.get("PIN_CODE");
+                            info.accountBalance = (double) element.get("balance");
+                            info.name = (String) element.get("name");
+                            info.transactions = transactions;
                         
                         return info;
+                        }
                     } else {
                         throw new customException("PIN doesn't match");
                     }

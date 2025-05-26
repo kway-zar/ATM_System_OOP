@@ -35,11 +35,16 @@ class ATM_System {
             
             userInfo.setEnteredCardNo(enteredCardNo);
             userInfo.setEnteredPIN(enteredPIN);
+            userInfo.setIsGettingBalance(true, 100);//set the new balance
+                                                       
+            
             info = userInfo.getUserInfo();
             this.CARD_NO = info.CARD_NO;
             this.PIN_CODE = info.PIN_CODE;
             this.name = info.name;
             this.accountBalance = info.accountBalance;
+            
+            System.out.println(info.accountBalance);
                     
 //            for(int i = 0; i < userInfo.arrSize();i++){
 //                System.out.println(info.transactions[i].date);
@@ -64,6 +69,7 @@ class ATM_System {
         //demonstration to check the account
         ATM_System atm = new ATM_System();
         atm.setUserInfo("2", "3");
+        
    }
     
 }
