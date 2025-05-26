@@ -88,6 +88,7 @@ class JSON_UserInfo {
                         if(isGettingBalance){
                             
                             updateBalance(element);
+                            break;
                         }
                         
                         

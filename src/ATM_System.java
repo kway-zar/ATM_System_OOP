@@ -35,7 +35,7 @@ class ATM_System {
             
             userInfo.setEnteredCardNo(enteredCardNo);
             userInfo.setEnteredPIN(enteredPIN);
-            userInfo.setIsGettingBalance(true, 100);//set sthe new balance
+            userInfo.setIsGettingBalance(true, 100);//set the new balance
                                                        
             
             info = userInfo.getUserInfo();
