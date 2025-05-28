@@ -13,6 +13,7 @@ class JSON_UserInfo {
     private String enteredCardNo ="";
     private String enteredPIN = "";
     private double newBalance = 0;
+    private boolean cardFound;
     int tArraySize = 0;
     
     private boolean isGettingBalance = false;
@@ -78,12 +79,15 @@ class JSON_UserInfo {
                 int compareResult = value.compareTo(key);
 
                 if(compareResult == 0){
-
-
+                    this.cardFound = true;
+                    if(enteredPIN == null){
+                        
+                        throw new customException("Card exist but enteredPIN is null");
+                    }
                     String pin = (String)element.get("PIN_CODE");
                     boolean pinMatch = pin.equals(enteredPIN);
 
-                    if(pin.equals(enteredPIN)){
+                    if(pinMatch){
                         
                         if(isGettingBalance){
                             
@@ -113,7 +117,9 @@ class JSON_UserInfo {
                         
                         return info;
                         
-                    } else {
+                    }
+                    
+                    else {
                         throw new customException("PIN doesn't match");
                     }
                     
@@ -135,6 +141,9 @@ class JSON_UserInfo {
     public int arrSize(){
         return tArraySize;
      
+    }
+    public boolean getCardFound(){
+        return cardFound;
     }
 
 }

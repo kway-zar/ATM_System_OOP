@@ -7,6 +7,8 @@ package buttons;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author quasar
@@ -16,15 +18,23 @@ public class LanguageButton extends javax.swing.JPanel {
     /**
      * Creates new form LanguageButton
      */
+    String languages[] = {"English", "Filipino"};
+    int currentLanguage = 0;
+    int secondOption = (languages[currentLanguage].equals("English"))? 1: 0;
+    
+    
+    
     public LanguageButton() {
-        setOpaque(true);
-        
+        setOpaque(false);
+        setBackground(new Color(0,0,0,0));
         initComponents();
         
         
-                
+        
     }
-
+    public String getLanguage(){
+        return languages[currentLanguage];
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,35 +47,102 @@ public class LanguageButton extends javax.swing.JPanel {
         background1 = new components.background(){
             @Override
             public void paintComponent(Graphics g) {
-                super.paintComponent(g);
 
-                g.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
+                g.setColor(Color.decode("#343434"));
+                g.fillRoundRect(0, 0, getWidth(), getHeight(), 50, 50);
+
             }
 
         };
         jLabel1 = new javax.swing.JLabel();
+        background2 = new components.background(){
+            @Override
+            public void paintComponent(Graphics g) {
 
-        background1.setOpaque(true);
+                g.setColor(Color.decode("#343434"));
+                g.fillRoundRect(0, 0, getWidth(), getHeight(), 50, 50);
 
+            }
+
+        };
+        jLabel2 = new javax.swing.JLabel();
+
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        SwingUtilities.updateComponentTreeUI(background1);
+        background1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                background1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                background1MouseExited(evt);
+            }
+        });
+
+        background1.setBackground(Color.WHITE);
+        jLabel1.setFont(new java.awt.Font("Garet Book", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText(languages[currentLanguage]);
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        background2.addMouseListener(new java.awt.event.MouseAdapter(){
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e){
+                if(SwingUtilities.isLeftMouseButton(e)){
+                    int temp = currentLanguage;
+                    int l = secondOption;
+                    secondOption = temp;
+                    currentLanguage = l;
+                    jLabel1.setText(languages[temp]);
+                    jLabel2.setText(languages[l]);
+
+                }
+            }
+
+        });
+        background2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                background2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                background2MouseExited(evt);
+            }
+        });
+
+        background1.setBackground(Color.WHITE);
+        jLabel2.setFont(new java.awt.Font("Garet Book", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText(languages[secondOption]);
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout background2Layout = new javax.swing.GroupLayout(background2);
+        background2.setLayout(background2Layout);
+        background2Layout.setHorizontalGroup(
+            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background2Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+        background2Layout.setVerticalGroup(
+            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -73,22 +150,62 @@ public class LanguageButton extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void background1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseEntered
+        // TODO add your handling code here:
+        
+        background2.setVisible(true);   
+        firstButtonOnFocus = true;
+    }//GEN-LAST:event_background1MouseEntered
 
+    private void background2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseEntered
+        // TODO add your handling code here:
+        secondButtonOnFocus = true;
+    }//GEN-LAST:event_background2MouseEntered
+
+    private void background1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseExited
+        // TODO add your handling code here:
+        firstButtonOnFocus = false;
+    }//GEN-LAST:event_background1MouseExited
+
+    private void background2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseExited
+        // TODO add your handling code here:
+        secondButtonOnFocus = false;
+    }//GEN-LAST:event_background2MouseExited
+    
+    public void setSecondButtonInvisible(){
+        background2.setVisible(false);
+    }
+    public boolean noMouseActivity(){
+        if(firstButtonOnFocus == true || secondButtonOnFocus == true){
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
+    public boolean secondButtonOnFocus;
+    public boolean firstButtonOnFocus;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
+    private components.background background2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
