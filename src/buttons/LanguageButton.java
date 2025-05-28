@@ -6,6 +6,7 @@ package buttons;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 import javax.swing.SwingUtilities;
 
@@ -19,8 +20,9 @@ public class LanguageButton extends javax.swing.JPanel {
      * Creates new form LanguageButton
      */
     String languages[] = {"English", "Filipino"};
+    String iconLocation[] = {"/resource/united-kingdom.png","/resource/philippines.png"};
     int currentLanguage = 0;
-    int secondOption = (languages[currentLanguage].equals("English"))? 1: 0;
+    int secondOption = 1;
     
     
     
@@ -80,7 +82,7 @@ public class LanguageButton extends javax.swing.JPanel {
         });
 
         background1.setBackground(Color.WHITE);
-        jLabel1.setFont(new java.awt.Font("Garet Book", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garet Book", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText(languages[currentLanguage]);
@@ -91,7 +93,7 @@ public class LanguageButton extends javax.swing.JPanel {
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(10, Short.MAX_VALUE))
         );
@@ -99,6 +101,8 @@ public class LanguageButton extends javax.swing.JPanel {
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        jLabel1.setIcon(new ImageIcon(getClass().getResource(iconLocation[currentLanguage])));
 
         background2.addMouseListener(new java.awt.event.MouseAdapter(){
             @Override
@@ -108,8 +112,11 @@ public class LanguageButton extends javax.swing.JPanel {
                     int l = secondOption;
                     secondOption = temp;
                     currentLanguage = l;
-                    jLabel1.setText(languages[temp]);
-                    jLabel2.setText(languages[l]);
+                    jLabel1.setText(languages[l]);
+                    jLabel2.setText(languages[temp]);
+
+                    jLabel1.setIcon(new ImageIcon(getClass().getResource(iconLocation[l])));
+                    jLabel2.setIcon(new ImageIcon(getClass().getResource(iconLocation[temp])));
 
                 }
             }
@@ -125,7 +132,7 @@ public class LanguageButton extends javax.swing.JPanel {
         });
 
         background1.setBackground(Color.WHITE);
-        jLabel2.setFont(new java.awt.Font("Garet Book", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garet Book", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText(languages[secondOption]);
@@ -136,7 +143,7 @@ public class LanguageButton extends javax.swing.JPanel {
         background2Layout.setHorizontalGroup(
             background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background2Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
@@ -144,6 +151,8 @@ public class LanguageButton extends javax.swing.JPanel {
             background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        jLabel2.setIcon(new ImageIcon(getClass().getResource(iconLocation[secondOption])));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
