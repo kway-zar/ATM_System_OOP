@@ -40,6 +40,7 @@ public class Main extends javax.swing.JFrame {
         home2 = new PagePanels.Home();
         dateAndTimeLabel1 = new components.DateAndTimeLabel();
         logo2 = new components.logo();
+        enterCardPage1 = new PagePanels.EnterCardPage();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,9 +61,11 @@ public class Main extends javax.swing.JFrame {
         circle1.add(languageButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 6, -1, -1));
 
         home2.setUsername("Jeri", languageButton1.getLanguage());
-        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 1100, 530));
+        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 530));
+        home2.setVisible(false);
         circle1.add(dateAndTimeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
         circle1.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 60));
+        circle1.add(enterCardPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -162,6 +165,7 @@ public class Main extends javax.swing.JFrame {
     private components.background background1;
     private components.Circle circle1;
     private components.DateAndTimeLabel dateAndTimeLabel1;
+    private PagePanels.EnterCardPage enterCardPage1;
     private PagePanels.Home home2;
     private javax.swing.JPanel jPanel1;
     private buttons.LanguageButton languageButton1;
