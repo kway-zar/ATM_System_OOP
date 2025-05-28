@@ -39,6 +39,7 @@ public class Main extends javax.swing.JFrame {
         languageButton1 = new buttons.LanguageButton();
         home2 = new PagePanels.Home();
         dateAndTimeLabel1 = new components.DateAndTimeLabel();
+        logo2 = new components.logo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -59,8 +60,9 @@ public class Main extends javax.swing.JFrame {
         circle1.add(languageButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 6, -1, -1));
 
         home2.setUsername("Jeri", languageButton1.getLanguage());
-        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1100, -1));
+        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 1100, 530));
         circle1.add(dateAndTimeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
+        circle1.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 60));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -163,5 +165,6 @@ public class Main extends javax.swing.JFrame {
     private PagePanels.Home home2;
     private javax.swing.JPanel jPanel1;
     private buttons.LanguageButton languageButton1;
+    private components.logo logo2;
     // End of variables declaration//GEN-END:variables
 }
