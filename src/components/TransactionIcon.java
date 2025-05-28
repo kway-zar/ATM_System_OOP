@@ -25,7 +25,7 @@ public class TransactionIcon extends javax.swing.JPanel {
     
     public void setIconImage(String urlString, int w, int h){
         img = new ImageIcon(getClass().getResource(urlString)).getImage();
-        scaledImage = img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+        scaledImage = img.getScaledInstance(w, h, Image.SCALE_AREA_AVERAGING);
         repaint();
         SwingUtilities.updateComponentTreeUI(this);
     }
