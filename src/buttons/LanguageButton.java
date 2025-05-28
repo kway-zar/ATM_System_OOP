@@ -6,6 +6,9 @@ package buttons;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,15 +19,24 @@ public class LanguageButton extends javax.swing.JPanel {
     /**
      * Creates new form LanguageButton
      */
+    String languages[] = {"English", "Filipino"};
+    String iconLocation[] = {"/resource/united-kingdom.png","/resource/philippines.png"};
+    int currentLanguage = 0;
+    int secondOption = 1;
+    
+    
+    
     public LanguageButton() {
-        setOpaque(true);
-        
+        setOpaque(false);
+        setBackground(new Color(0,0,0,0));
         initComponents();
         
         
-                
+        
     }
-
+    public String getLanguage(){
+        return languages[currentLanguage];
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,61 +46,55 @@ public class LanguageButton extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background1 = new components.background(){
-            @Override
-            public void paintComponent(Graphics g) {
-                super.paintComponent(g);
-
-                g.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
-            }
-
-        };
-        jLabel1 = new javax.swing.JLabel();
-
-        background1.setOpaque(true);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
-        background1.setLayout(background1Layout);
-        background1Layout.setHorizontalGroup(
-            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        background1Layout.setVerticalGroup(
-            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 145, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+            .addGap(0, 116, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void background1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseEntered
+        // TODO add your handling code here:
+        
+        background2.setVisible(true);   
+        firstButtonOnFocus = true;
+    }//GEN-LAST:event_background1MouseEntered
 
+    private void background2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseEntered
+        // TODO add your handling code here:
+        secondButtonOnFocus = true;
+    }//GEN-LAST:event_background2MouseEntered
+
+    private void background1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseExited
+        // TODO add your handling code here:
+        firstButtonOnFocus = false;
+    }//GEN-LAST:event_background1MouseExited
+
+    private void background2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseExited
+        // TODO add your handling code here:
+        secondButtonOnFocus = false;
+    }//GEN-LAST:event_background2MouseExited
+    
+    public void setSecondButtonInvisible(){
+        background2.setVisible(false);
+    }
+    public boolean noMouseActivity(){
+        if(firstButtonOnFocus == true || secondButtonOnFocus == true){
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
+    public boolean secondButtonOnFocus;
+    public boolean firstButtonOnFocus;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.background background1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

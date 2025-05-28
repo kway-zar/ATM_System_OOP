@@ -1,3 +1,8 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,6 +17,9 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+    Timer timer;
+    ActionListener taskPerformer;
+    userInfo info;
     public Main() {
         initComponents();
     }
@@ -25,21 +33,95 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        background1 = new components.background();
+        circle1 = new components.Circle();
+        languageButton1 = new buttons.LanguageButton();
+        home2 = new PagePanels.Home();
+        dateAndTimeLabel1 = new components.DateAndTimeLabel();
+        logo2 = new components.logo();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        circle1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        languageButton1.setSecondButtonInvisible();
+        languageButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                languageButton1MouseEntered(evt);
+            }
+        });
+        languageButton1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                languageButton1PropertyChange(evt);
+            }
+        });
+        circle1.add(languageButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 6, -1, -1));
+
+        home2.setUsername("Jeri", languageButton1.getLanguage());
+        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 1100, 530));
+        circle1.add(dateAndTimeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
+        circle1.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 60));
+
+        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
+        background1.setLayout(background1Layout);
+        background1Layout.setHorizontalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addComponent(circle1, javax.swing.GroupLayout.PREFERRED_SIZE, 1104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        background1Layout.setVerticalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addComponent(circle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void languageButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_languageButton1MouseEntered
+        // TODO add your handling code here:
+        taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                if(languageButton1.noMouseActivity() == true){
+                    languageButton1.setSecondButtonInvisible();
+                }
+            }
+        };
+        timer = new Timer(500, taskPerformer);
+        timer.start();
+    }//GEN-LAST:event_languageButton1MouseEntered
+
+    private void languageButton1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_languageButton1PropertyChange
+        // TODO add your handling code here:
+        home2.setUsername("Jeri", languageButton1.getLanguage());
+    }//GEN-LAST:event_languageButton1PropertyChange
 
     /**
      * @param args the command line arguments
@@ -77,5 +159,12 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.background background1;
+    private components.Circle circle1;
+    private components.DateAndTimeLabel dateAndTimeLabel1;
+    private PagePanels.Home home2;
+    private javax.swing.JPanel jPanel1;
+    private buttons.LanguageButton languageButton1;
+    private components.logo logo2;
     // End of variables declaration//GEN-END:variables
 }
