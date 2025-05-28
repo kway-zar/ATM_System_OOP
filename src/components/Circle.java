@@ -31,7 +31,7 @@ public class Circle extends javax.swing.JPanel {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D)g;
         g2.drawImage(scaledImage, 0,0, null);
         SwingUtilities.updateComponentTreeUI(this);

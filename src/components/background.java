@@ -20,7 +20,10 @@ public class background extends javax.swing.JPanel {
      */
     public background() {
         setOpaque(false);
+        setBackground(new Color(255,255,255,0));
         initComponents();
+        
+        
     }
 
     /**
