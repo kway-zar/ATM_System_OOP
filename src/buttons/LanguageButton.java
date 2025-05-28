@@ -22,6 +22,8 @@ public class LanguageButton extends javax.swing.JPanel {
     int currentLanguage = 0;
     int secondOption = (languages[currentLanguage].equals("English"))? 1: 0;
     
+    
+    
     public LanguageButton() {
         setOpaque(false);
         setBackground(new Color(0,0,0,0));
@@ -30,7 +32,9 @@ public class LanguageButton extends javax.swing.JPanel {
         
         
     }
-
+    public String getLanguage(){
+        return languages[currentLanguage];
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

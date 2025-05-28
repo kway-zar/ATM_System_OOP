@@ -15,6 +15,12 @@
 
 class ATM_System {
 
+
+    public boolean isCardFound() {
+        return cardFound;
+    }
+
+
     public double getAccountBalance() {
         return accountBalance;
     }
@@ -27,6 +33,7 @@ class ATM_System {
     public String getPIN_CODE() {
         return PIN_CODE;
     }
+    
 
     public void setUserInfo(String enteredCardNo, String enteredPIN){
         JSON_UserInfo userInfo = new JSON_UserInfo();
@@ -35,14 +42,18 @@ class ATM_System {
             
             userInfo.setEnteredCardNo(enteredCardNo);
             userInfo.setEnteredPIN(enteredPIN);
-            userInfo.setIsGettingBalance(true, 100);//set the new balance
+            //userInfo.setIsGettingBalance(true, 100);//set the new balance
                                                        
             
             info = userInfo.getUserInfo();
-            this.CARD_NO = info.CARD_NO;
-            this.PIN_CODE = info.PIN_CODE;
-            this.name = info.name;
-            this.accountBalance = info.accountBalance;
+            if(userInfo.getCardFound()){
+                this.CARD_NO = info.CARD_NO;
+                this.PIN_CODE = info.PIN_CODE;
+                this.name = info.name;
+                this.accountBalance = info.accountBalance;
+            
+            }
+            
             
             System.out.println(info.accountBalance);
                     
@@ -64,11 +75,12 @@ class ATM_System {
     private String PIN_CODE;
     private String name;
     private double accountBalance;
+    private boolean cardFound;
     
     public static void main(String[] args){
         //demonstration to check the account
         ATM_System atm = new ATM_System();
-        atm.setUserInfo("2", "3");
+        atm.setUserInfo("2", null);
         
    }
     
