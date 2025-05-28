@@ -1,3 +1,5 @@
+package ImportantFunctions;
+
 
 /**TODO:
  * 
@@ -13,7 +15,7 @@
 
 
 
-class ATM_System {
+public class ATM_System {
 
 
     public boolean isCardFound() {
@@ -35,7 +37,7 @@ class ATM_System {
     }
     
 
-    public void setUserInfo(String enteredCardNo, String enteredPIN){
+    public userInfo setUserInfo(String enteredCardNo, String enteredPIN){
         JSON_UserInfo userInfo = new JSON_UserInfo();
         userInfo info = new userInfo();
         try{
@@ -47,15 +49,18 @@ class ATM_System {
             
             info = userInfo.getUserInfo();
             if(userInfo.getCardFound()){
+                this.cardFound = userInfo.getCardFound();
                 this.CARD_NO = info.CARD_NO;
                 this.PIN_CODE = info.PIN_CODE;
                 this.name = info.name;
+                this.cardFound = true;
                 this.accountBalance = info.accountBalance;
             
             }
             
             
             System.out.println(info.accountBalance);
+            
                     
 //            for(int i = 0; i < userInfo.arrSize();i++){
 //                System.out.println(info.transactions[i].date);
@@ -67,6 +72,7 @@ class ATM_System {
         } catch(Exception e){
             e.printStackTrace();
         }
+        return info;
     }
     
     
@@ -77,12 +83,12 @@ class ATM_System {
     private double accountBalance;
     private boolean cardFound;
     
-    public static void main(String[] args){
-        //demonstration to check the account
-        ATM_System atm = new ATM_System();
-        atm.setUserInfo("2", null);
-        
-   }
+//    public static void main(String[] args){
+//        //demonstration to check the account
+////        ATM_System atm = new ATM_System();
+////        atm.setUserInfo("2", null);
+//        
+//   }
     
 }
 
