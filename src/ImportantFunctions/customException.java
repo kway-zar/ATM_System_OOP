@@ -1,3 +1,5 @@
+package ImportantFunctions;
+
 
 public class customException extends Exception{
     public customException(String message){

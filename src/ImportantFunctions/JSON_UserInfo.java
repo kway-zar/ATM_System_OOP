@@ -1,6 +1,9 @@
+package ImportantFunctions;
+
 
 import java.io.FileReader;
-import java.io.ObjectStreamConstants;
+import javax.swing.JOptionPane;
+
 
 
 import org.json.simple.JSONArray;
@@ -81,14 +84,14 @@ class JSON_UserInfo {
                 if(compareResult == 0){
                     this.cardFound = true;
                     if(enteredPIN == null){
-                        
-                        throw new customException("Card exist but enteredPIN is null");
+                        info.cardFound = true;
+                        return info;
                     }
                     String pin = (String)element.get("PIN_CODE");
                     boolean pinMatch = pin.equals(enteredPIN);
 
                     if(pinMatch){
-                        
+                        JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
                         if(isGettingBalance){
                             
                             updateBalance(element);
@@ -114,6 +117,7 @@ class JSON_UserInfo {
                         info.accountBalance = (double) element.get("balance");
                         info.name = (String) element.get("name");
                         info.transactions = transactions;
+                        info.cardFound = true;
                         
                         return info;
                         
@@ -132,6 +136,7 @@ class JSON_UserInfo {
                 }
 
             }
+            JOptionPane.showMessageDialog(null, "INVALID CREDENTIALS", "CARD DOESN'T EXIST",JOptionPane.INFORMATION_MESSAGE);
             throw new customException("Invalid Credentials");
         }catch (customException e) {
             System.err.println("Error: " + e.getMessage());
@@ -149,12 +154,4 @@ class JSON_UserInfo {
 }
 
 
-class userInfo{
-    String name, CARD_NO, PIN_CODE;
-    double accountBalance;
-    userTransactions[] transactions;
-}
-class userTransactions{
-    String date, time;
-    double money;
-}
+

@@ -3,7 +3,6 @@ import ImportantFunctions.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -11,18 +10,14 @@ import javax.swing.Timer;
  *
  * @author quasar
  */
-public class EnterCardPage extends javax.swing.JPanel {
+public class EnterPinPage extends javax.swing.JPanel {
 
-
-    public boolean isNext() {
-        return next;
-    }
-
+    /**
+     * Creates new form EnterCardPage
+     */
     Timer timer;
     ActionListener taskPerformer;
-    private boolean next;
-    
-    public EnterCardPage() {
+    public EnterPinPage() {
         setOpaque(false);
         initComponents();
         taskPerformer = new ActionListener() {
@@ -52,7 +47,7 @@ public class EnterCardPage extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Garet Book", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Enter Card Number");
+        jLabel1.setText("Enter PIN Number");
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new Color(0,0,0,0));
@@ -137,18 +132,9 @@ public class EnterCardPage extends javax.swing.JPanel {
     private void pinkButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pinkButton1MouseClicked
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
-            if(numpadContainer1.getInput().length() == 16){
+            if(numpadContainer1.getInput().length() == 4){
                 ATM_System atm = new ATM_System();
-                userInfo info;
-                info = atm.setUserInfo(numpadContainer1.getInput(), null);
-                
-                if(info.cardFound == true){
-                    this.next = atm.isCardFound();
-                    
-                    
-                } else {
-                    
-                }
+                atm.setUserInfo(numpadContainer1.getInput(), null);
             }
         }
     }//GEN-LAST:event_pinkButton1MouseClicked
