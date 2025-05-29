@@ -84,14 +84,14 @@ class JSON_UserInfo {
                 if(compareResult == 0){
                     this.cardFound = true;
                     if(enteredPIN == null){
-                        info.cardFound = true;
+                        info.setCardFound(true);
                         return info;
                     }
                     String pin = (String)element.get("PIN_CODE");
                     boolean pinMatch = pin.equals(enteredPIN);
 
                     if(pinMatch){
-                        JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
+                        
                         if(isGettingBalance){
                             
                             updateBalance(element);
@@ -112,13 +112,13 @@ class JSON_UserInfo {
 
                         }
 
-                        info.CARD_NO = (String) element.get(target);
-                        info.PIN_CODE = (String) element.get("PIN_CODE");
-                        info.accountBalance = (double) element.get("balance");
-                        info.name = (String) element.get("name");
-                        info.transactions = transactions;
-                        info.cardFound = true;
-                        
+                        info.setCARD_NO((String) element.get(target));
+                        info.setPIN_CODE((String) element.get("PIN_CODE"));
+                        info.setAccountBalance((double) element.get("balance"));
+                        info.setName((String) element.get("name"));
+                        info.setTransactions(transactions);
+                        info.setCardFound(true);
+                        JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
                         return info;
                         
                     }

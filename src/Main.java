@@ -16,6 +16,13 @@ import javax.swing.Timer;
 public class Main extends javax.swing.JFrame {
 
     /**
+     * @param info the info to set
+     */
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+
+    /**
      * Creates new form Main
      */
     Timer timer;
@@ -23,29 +30,44 @@ public class Main extends javax.swing.JFrame {
     
     ActionListener taskPerformer;
     ActionListener loadPage;
-    userInfo info;
     
+    private userInfo info = new userInfo();
     int pageIndex = 0;
     public Main() {
         initComponents();
-        
-        loadPage = new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                if(enterCardPage1.isNext() == true){
-                    pageIndex++;
-                    enterCardPage1.setVisible(false);
-                    enterPinPage1.setVisible(true);
-                }
-            }
-        
-        };
-        loadTimer = new Timer(50, loadPage);
-        loadTimer.start();
+        LoginSession();
         
         
     }
     
+    
+    public void LoginSession(){
+        loadPage = new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    if(enterCardPage1.isNext() == true){
+                        pageIndex++;
+                        enterCardPage1.setVisible(false);
+                        enterPinPage1.setVisible(true);
+                        enterPinPage1.setCardNo(enterCardPage1.getCardNo());
+                        
+                        setInfo(enterPinPage1.getInfo());
+                        if(enterPinPage1.isLoggedIn() == true){
+                            enterPinPage1.setVisible(false);
+                            home2.setVisible(true);
+                            setInfo(info);
+                            
+                        }
+
+                    }
+
+                }
+
+            };
+            loadTimer = new Timer(50, loadPage);
+            loadTimer.start();
+    
+    }
     
     
 

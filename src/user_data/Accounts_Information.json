@@ -4,7 +4,7 @@
             "name": "dadadasad",
             "CARD_NO": "1111111111111111",
             "balance": 500.0,
-            "PIN_CODE": "",
+            "PIN_CODE": "1111",
             "Transaction": [
                 ["aug", "13:50", 50000],
                 ["sep", "13:90", 50000],

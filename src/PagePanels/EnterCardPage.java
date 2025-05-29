@@ -14,6 +14,10 @@ import javax.swing.Timer;
 public class EnterCardPage extends javax.swing.JPanel {
 
 
+    public String getCardNo() {
+        return cardNo;
+    }
+
     public boolean isNext() {
         return next;
     }
@@ -142,9 +146,9 @@ public class EnterCardPage extends javax.swing.JPanel {
                 userInfo info;
                 info = atm.setUserInfo(numpadContainer1.getInput(), null);
                 
-                if(info.cardFound == true){
+                if(info.isCardFound() == true){
                     this.next = atm.isCardFound();
-                    
+                    this.cardNo = numpadContainer1.getInput();
                     
                 } else {
                     
@@ -152,7 +156,7 @@ public class EnterCardPage extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_pinkButton1MouseClicked
-
+    private String cardNo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

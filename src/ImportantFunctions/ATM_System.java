@@ -39,7 +39,7 @@ public class ATM_System {
 
     public userInfo setUserInfo(String enteredCardNo, String enteredPIN){
         JSON_UserInfo userInfo = new JSON_UserInfo();
-        userInfo info = new userInfo();
+        this.info = new userInfo();
         try{
             
             userInfo.setEnteredCardNo(enteredCardNo);
@@ -50,18 +50,18 @@ public class ATM_System {
             info = userInfo.getUserInfo();
             if(userInfo.getCardFound()){
                 this.cardFound = userInfo.getCardFound();
-                this.CARD_NO = info.CARD_NO;
-                this.PIN_CODE = info.PIN_CODE;
-                this.name = info.name;
+                this.CARD_NO = getInfo().getCARD_NO();
+                this.PIN_CODE = getInfo().getPIN_CODE();
+                this.name = getInfo().getName();
                 this.cardFound = true;
-                this.accountBalance = info.accountBalance;
+                this.accountBalance = getInfo().getAccountBalance();
+                
             
             }
             
             
-            System.out.println(info.accountBalance);
-            
-                    
+            System.out.println(getInfo().getAccountBalance());    
+            return info;
 //            for(int i = 0; i < userInfo.arrSize();i++){
 //                System.out.println(info.transactions[i].date);
 //                System.out.println(info.transactions[i].time);
@@ -72,16 +72,20 @@ public class ATM_System {
         } catch(Exception e){
             e.printStackTrace();
         }
-        return info;
+        return getInfo();
     }
     
     
-    
+    private userInfo info;
     private String CARD_NO;
     private String PIN_CODE;
     private String name;
     private double accountBalance;
     private boolean cardFound;
+
+    public userInfo getInfo() {
+        return info;
+    }
     
 //    public static void main(String[] args){
 //        //demonstration to check the account
