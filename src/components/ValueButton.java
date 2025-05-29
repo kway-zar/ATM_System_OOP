@@ -105,6 +105,7 @@ public class ValueButton extends JButton {
     public ValueButton() {
        // color=Color.GRAY;
         colorOver=new Color(255, 255, 255);
+        borderColor= new Color(255, 255, 255);
         setContentAreaFilled(false);
     }
     
