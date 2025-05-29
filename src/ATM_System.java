@@ -35,8 +35,10 @@ class ATM_System {
             
             userInfo.setEnteredCardNo(enteredCardNo);
             userInfo.setEnteredPIN(enteredPIN);
-            userInfo.setIsGettingBalance(true, 100);//set the new balance
-                                                       
+          //  userInfo.setIsGettingBalance(true, 100);//set the new balance
+            Withdraw w = new Withdraw();
+            
+            w.withdraw(1000, info, userInfo);
             
             info = userInfo.getUserInfo();
             this.CARD_NO = info.CARD_NO;
