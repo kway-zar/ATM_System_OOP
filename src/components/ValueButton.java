@@ -15,7 +15,7 @@ import java.awt.Graphics2D;
  *
  * @author rowaine
  */
-public class Button extends JButton {
+public class ValueButton extends JButton {
 
     /**
      * @return the over
@@ -102,8 +102,7 @@ public class Button extends JButton {
         this.radius = radius;
     }
     
-    
-    public Button() {
+    public ValueButton() {
        // color=Color.GRAY;
         colorOver=new Color(255, 255, 255);
         setContentAreaFilled(false);
@@ -121,11 +120,12 @@ public class Button extends JButton {
         Graphics2D g2=(Graphics2D)grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(borderColor);
-        //g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
-        g2.setColor(new Color(233, 114, 129));
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
+        g2.setColor(getBackground());
         g2.fillRoundRect(2, 2, getWidth() - 4, getHeight() - 4, radius, radius);
  
         super.paintComponent(grphcs); 
     }
  
 }
+
