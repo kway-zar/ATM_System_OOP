@@ -72,7 +72,9 @@ public class numpad extends javax.swing.JPanel {
         return textString;
     
     }
-    
+    public void clearString(){
+        this.textString = "";
+    }
 
 
     /**

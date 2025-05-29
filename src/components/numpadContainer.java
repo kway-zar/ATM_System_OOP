@@ -29,6 +29,10 @@ public class numpadContainer extends javax.swing.JPanel {
     public String getInput(){
         return numpad1.returnInputString();
     }
+    public void clearInput(){
+    
+        numpad1.clearString();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
