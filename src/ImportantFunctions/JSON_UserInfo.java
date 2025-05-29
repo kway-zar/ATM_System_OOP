@@ -1,6 +1,9 @@
+package ImportantFunctions;
+
 
 import java.io.FileReader;
-import java.io.ObjectStreamConstants;
+import javax.swing.JOptionPane;
+
 
 
 import org.json.simple.JSONArray;
@@ -13,6 +16,7 @@ class JSON_UserInfo {
     private String enteredCardNo ="";
     private String enteredPIN = "";
     private double newBalance = 0;
+    private boolean cardFound;
     int tArraySize = 0;
     
     private boolean isGettingBalance = false;
@@ -78,44 +82,48 @@ class JSON_UserInfo {
                 int compareResult = value.compareTo(key);
 
                 if(compareResult == 0){
-
-
+                    this.cardFound = true;
+                    if(enteredPIN == null){
+                        info.setCardFound(true);
+                        return info;
+                    }
                     String pin = (String)element.get("PIN_CODE");
                     boolean pinMatch = pin.equals(enteredPIN);
 
-                    if(pin.equals(enteredPIN)){
+                    if(pinMatch){
                         
                         if(isGettingBalance){
                             
                             updateBalance(element);
-                            break;
+                            
                         }
-                        
-                        
-                        else{
-                            JSONArray t = (JSONArray) element.get("Transaction");
-                            tArraySize = t.size();
-                            userTransactions[] transactions = new userTransactions[tArraySize];
-                            int i = 0;
-                            for(Object tObject: t){
-                                JSONArray tr = (JSONArray)tObject;
-                                transactions[i] = new userTransactions();
-                                transactions[i].date = (String)tr.get(0);
-                                transactions[i].time = (String)tr.get(1);
-                                transactions[i].money = ((Long) tr.get(2)).doubleValue();
-                                i++;
 
-                            }
+                        JSONArray t = (JSONArray) element.get("Transaction");
+                        tArraySize = t.size();
+                        userTransactions[] transactions = new userTransactions[tArraySize];
+                        int i = 0;
+                        for (Object tObject : t) {
+                            JSONArray tr = (JSONArray) tObject;
+                            transactions[i] = new userTransactions();
+                            transactions[i].date = (String) tr.get(0);
+                            transactions[i].time = (String) tr.get(1);
+                            transactions[i].money = ((Long) tr.get(2)).doubleValue();
+                            i++;
 
-                            info.CARD_NO = (String) element.get(target);
-                            info.PIN_CODE =(String) element.get("PIN_CODE");
-                            info.accountBalance = (double) element.get("balance");
-                            info.name = (String) element.get("name");
-                            info.transactions = transactions;
-                        
+                        }
+
+                        info.setCARD_NO((String) element.get(target));
+                        info.setPIN_CODE((String) element.get("PIN_CODE"));
+                        info.setAccountBalance((double) element.get("balance"));
+                        info.setName((String) element.get("name"));
+                        info.setTransactions(transactions);
+                        info.setCardFound(true);
+                        JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
                         return info;
-                        }
-                    } else {
+                        
+                    }
+                    
+                    else {
                         throw new customException("PIN doesn't match");
                     }
                     
@@ -128,6 +136,7 @@ class JSON_UserInfo {
                 }
 
             }
+            JOptionPane.showMessageDialog(null, "INVALID CREDENTIALS", "CARD DOESN'T EXIST",JOptionPane.INFORMATION_MESSAGE);
             throw new customException("Invalid Credentials");
         }catch (customException e) {
             System.err.println("Error: " + e.getMessage());
@@ -138,16 +147,11 @@ class JSON_UserInfo {
         return tArraySize;
      
     }
+    public boolean getCardFound(){
+        return cardFound;
+    }
 
 }
 
 
-class userInfo{
-    String name, CARD_NO, PIN_CODE;
-    double accountBalance;
-    userTransactions[] transactions;
-}
-class userTransactions{
-    String date, time;
-    double money;
-}
+

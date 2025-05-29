@@ -1,0 +1,215 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package buttons;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
+import javax.swing.SwingUtilities;
+
+/**
+ *
+ * @author quasar
+ */
+public class LanguageButton extends javax.swing.JPanel {
+
+    /**
+     * Creates new form LanguageButton
+     */
+    String languages[] = {"English", "Filipino"};
+    String iconLocation[] = {"/resource/united-kingdom.png","/resource/philippines.png"};
+    int currentLanguage = 0;
+    int secondOption = 1;
+    
+    
+    
+    public LanguageButton() {
+        setOpaque(false);
+        setBackground(new Color(0,0,0,0));
+        initComponents();
+        
+   
+    }
+    public String getLanguage(){
+        return languages[currentLanguage];
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        background1 = new components.background(){
+            @Override
+            public void paintComponent(Graphics g) {
+
+                g.setColor(Color.decode("#343434"));
+                g.fillRoundRect(0, 0, getWidth(), getHeight(), 50, 50);
+
+            }
+
+        };
+        jLabel1 = new javax.swing.JLabel();
+        background2 = new components.background(){
+            @Override
+            public void paintComponent(Graphics g) {
+
+                g.setColor(Color.decode("#343434"));
+                g.fillRoundRect(0, 0, getWidth(), getHeight(), 50, 50);
+
+            }
+
+        };
+        jLabel2 = new javax.swing.JLabel();
+
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        SwingUtilities.updateComponentTreeUI(background1);
+        background1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                background1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                background1MouseExited(evt);
+            }
+        });
+
+        background1.setBackground(Color.WHITE);
+        jLabel1.setFont(new java.awt.Font("Garet Book", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText(languages[currentLanguage]);
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
+        background1.setLayout(background1Layout);
+        background1Layout.setHorizontalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        background1Layout.setVerticalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jLabel1.setIcon(new ImageIcon(getClass().getResource(iconLocation[currentLanguage])));
+
+        background2.addMouseListener(new java.awt.event.MouseAdapter(){
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e){
+                if(SwingUtilities.isLeftMouseButton(e)){
+                    int temp = currentLanguage;
+                    int l = secondOption;
+                    secondOption = temp;
+                    currentLanguage = l;
+                    jLabel1.setText(languages[l]);
+                    jLabel2.setText(languages[temp]);
+
+                    jLabel1.setIcon(new ImageIcon(getClass().getResource(iconLocation[l])));
+                    jLabel2.setIcon(new ImageIcon(getClass().getResource(iconLocation[temp])));
+
+                }
+            }
+
+        });
+        background2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                background2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                background2MouseExited(evt);
+            }
+        });
+
+        background1.setBackground(Color.WHITE);
+        jLabel2.setFont(new java.awt.Font("Garet Book", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText(languages[secondOption]);
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout background2Layout = new javax.swing.GroupLayout(background2);
+        background2.setLayout(background2Layout);
+        background2Layout.setHorizontalGroup(
+            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background2Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+        background2Layout.setVerticalGroup(
+            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jLabel2.setIcon(new ImageIcon(getClass().getResource(iconLocation[secondOption])));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void background1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseEntered
+        // TODO add your handling code here:
+        
+        background2.setVisible(true);   
+        firstButtonOnFocus = true;
+    }//GEN-LAST:event_background1MouseEntered
+
+    private void background2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseEntered
+        // TODO add your handling code here:
+        secondButtonOnFocus = true;
+    }//GEN-LAST:event_background2MouseEntered
+
+    private void background1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseExited
+        // TODO add your handling code here:
+        firstButtonOnFocus = false;
+    }//GEN-LAST:event_background1MouseExited
+
+    private void background2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseExited
+        // TODO add your handling code here:
+        secondButtonOnFocus = false;
+    }//GEN-LAST:event_background2MouseExited
+    
+    public void setSecondButtonInvisible(){
+        background2.setVisible(false);
+    }
+    public boolean noMouseActivity(){
+        if(firstButtonOnFocus == true || secondButtonOnFocus == true){
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
+    public boolean secondButtonOnFocus;
+    public boolean firstButtonOnFocus;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.background background1;
+    private components.background background2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    // End of variables declaration//GEN-END:variables
+}
