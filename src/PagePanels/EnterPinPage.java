@@ -3,7 +3,6 @@ import ImportantFunctions.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -11,29 +10,45 @@ import javax.swing.Timer;
  *
  * @author quasar
  */
-public class EnterCardPage extends javax.swing.JPanel {
+public class EnterPinPage extends javax.swing.JPanel {
 
-
-    public String getCardNo() {
-        return cardNo;
+    /**
+     * @return the isLoggedIn
+     */
+    public boolean isLoggedIn() {
+        return isLoggedIn;
     }
 
-    public boolean isNext() {
-        return next;
+
+
+
+    public userInfo getInfo() {
+        return info;
     }
+
+
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
+
 
     Timer timer;
     ActionListener taskPerformer;
-    private boolean next;
-    
-    public EnterCardPage() {
+    ATM_System atm = new ATM_System();
+    private boolean isLoggedIn;
+ 
+    public EnterPinPage() {
         setOpaque(false);
         initComponents();
         taskPerformer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                jTextField1.setText(numpadContainer1.getInput());
-
+                if(!numpadContainer1.getInput().isEmpty() && numpadContainer1.getInput().length() > 4){
+                    jTextField1.setText(numpadContainer1.getInput().substring(0, 4));
+                
+                }else {
+                    jTextField1.setText(numpadContainer1.getInput());
+                }
                 
             }
         };
@@ -56,7 +71,7 @@ public class EnterCardPage extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Garet Book", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Enter Card Number");
+        jLabel1.setText("Enter PIN Number");
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new Color(0,0,0,0));
@@ -141,23 +156,22 @@ public class EnterCardPage extends javax.swing.JPanel {
     private void pinkButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pinkButton1MouseClicked
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
-            if(numpadContainer1.getInput().length() == 16){
-                ATM_System atm = new ATM_System();
-                userInfo info;
-                info = atm.setUserInfo(numpadContainer1.getInput(), null);
-                
+            if(numpadContainer1.getInput().length() == 4){
+
+                atm.setUserInfo(cardNo, numpadContainer1.getInput());
+                this.info = atm.getInfo();
                 if(info.isCardFound() == true){
-                    this.next = atm.isCardFound();
-                    this.cardNo = numpadContainer1.getInput();
-                    
-                } else {
-                    
+                    isLoggedIn = true;
+                    this.info = getInfo();
+                    //System.out.println(info.isCardFound());
                 }
+            
             }
         }
     }//GEN-LAST:event_pinkButton1MouseClicked
     private String cardNo;
-
+    private userInfo info;
+    private boolean isNext;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
