@@ -16,6 +16,13 @@ import javax.swing.Timer;
 public class Main extends javax.swing.JFrame {
 
     /**
+     * @param info the info to set
+     */
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+
+    /**
      * Creates new form Main
      */
     Timer timer;
@@ -23,29 +30,49 @@ public class Main extends javax.swing.JFrame {
     
     ActionListener taskPerformer;
     ActionListener loadPage;
-    userInfo info;
     
+    private userInfo info = new userInfo();
     int pageIndex = 0;
     public Main() {
         initComponents();
-        
-        loadPage = new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                if(enterCardPage1.isNext() == true){
-                    pageIndex++;
-                    enterCardPage1.setVisible(false);
-                    enterPinPage1.setVisible(true);
-                }
-            }
-        
-        };
-        loadTimer = new Timer(50, loadPage);
-        loadTimer.start();
+        LoginSession();
         
         
     }
     
+    
+    public void LoginSession(){
+        loadPage = new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    if(enterCardPage1.isNext() == true){
+                        pageIndex++;
+                        enterCardPage1.setVisible(false);
+                        enterPinPage1.setVisible(true);
+                        enterPinPage1.setCardNo(enterCardPage1.getCardNo());
+                        
+                        
+                        
+                        if(enterPinPage1.isLoggedIn() == true){
+                            info = enterPinPage1.getInfo();
+                            enterPinPage1.setVisible(false);
+                            System.out.println(info.getName());
+                            home1.setUsername(info.getName(), languageButton1.getLanguage());
+                            home1.setVisible(true);
+                            
+                            setInfo(info);
+                            
+                        }
+
+                    }
+
+                }
+
+            };
+            loadTimer = new Timer(50, loadPage);
+            loadTimer.start();
+    
+    }
     
     
 
@@ -57,11 +84,11 @@ public class Main extends javax.swing.JFrame {
         background1 = new components.background();
         circle1 = new components.Circle();
         languageButton1 = new buttons.LanguageButton();
-        home2 = new PagePanels.Home();
         dateAndTimeLabel1 = new components.DateAndTimeLabel();
         logo2 = new components.logo();
         enterCardPage1 = new PagePanels.EnterCardPage();
         enterPinPage1 = new PagePanels.EnterPinPage();
+        home1 = new PagePanels.Home();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -80,16 +107,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         circle1.add(languageButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 6, -1, -1));
-
-        home2.setUsername("Jeri", languageButton1.getLanguage());
-        circle1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 530));
-        home2.setVisible(false);
         circle1.add(dateAndTimeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
         circle1.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 60));
         circle1.add(enterCardPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         enterPinPage1.setVisible(false);
         circle1.add(enterPinPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        home1.setVisible(false);
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -147,7 +172,9 @@ public class Main extends javax.swing.JFrame {
 
     private void languageButton1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_languageButton1PropertyChange
         // TODO add your handling code here:
-        home2.setUsername("Jeri", languageButton1.getLanguage());
+        if(enterPinPage1.isLoggedIn() == true){
+            home1.setUsername(info.getName(), languageButton1.getLanguage());
+        }
     }//GEN-LAST:event_languageButton1PropertyChange
 
     /**
@@ -191,7 +218,7 @@ public class Main extends javax.swing.JFrame {
     private components.DateAndTimeLabel dateAndTimeLabel1;
     private PagePanels.EnterCardPage enterCardPage1;
     private PagePanels.EnterPinPage enterPinPage1;
-    private PagePanels.Home home2;
+    private PagePanels.Home home1;
     private javax.swing.JPanel jPanel1;
     private buttons.LanguageButton languageButton1;
     private components.logo logo2;

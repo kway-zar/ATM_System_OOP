@@ -13,18 +13,42 @@ import javax.swing.Timer;
 public class EnterPinPage extends javax.swing.JPanel {
 
     /**
-     * Creates new form EnterCardPage
+     * @return the isLoggedIn
      */
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
+
+
+
+    public userInfo getInfo() {
+        return info;
+    }
+
+
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
+
+
     Timer timer;
     ActionListener taskPerformer;
+    ATM_System atm = new ATM_System();
+    private boolean isLoggedIn;
+ 
     public EnterPinPage() {
         setOpaque(false);
         initComponents();
         taskPerformer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                jTextField1.setText(numpadContainer1.getInput());
-
+                if(!numpadContainer1.getInput().isEmpty() && numpadContainer1.getInput().length() > 4){
+                    jTextField1.setText(numpadContainer1.getInput().substring(0, 4));
+                
+                }else {
+                    jTextField1.setText(numpadContainer1.getInput());
+                }
                 
             }
         };
@@ -133,13 +157,21 @@ public class EnterPinPage extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
             if(numpadContainer1.getInput().length() == 4){
-                ATM_System atm = new ATM_System();
-                atm.setUserInfo(numpadContainer1.getInput(), null);
+
+                atm.setUserInfo(cardNo, numpadContainer1.getInput());
+                this.info = atm.getInfo();
+                if(info.isCardFound() == true){
+                    isLoggedIn = true;
+                    this.info = getInfo();
+                    //System.out.println(info.isCardFound());
+                }
+            
             }
         }
     }//GEN-LAST:event_pinkButton1MouseClicked
-
-
+    private String cardNo;
+    private userInfo info;
+    private boolean isNext;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
