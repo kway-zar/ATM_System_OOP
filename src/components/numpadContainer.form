@@ -33,7 +33,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new components.background(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        Graphics2D g2 = (Graphics2D)g;&#xa;        g2.setColor(new Color(0,0,0,60));&#xa;        g2.fillRoundRect(0,0,getWidth(),getHeight(),15,15);&#xa;    }&#xa;&#xa;    &#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new components.background(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        Graphics2D g2 = (Graphics2D)g;&#xa;        g2.setColor(new Color(0,0,0,60));&#xa;        g2.fillRoundRect(0,0,getWidth(),getHeight(),45,45);&#xa;    }&#xa;&#xa;}"/>
       </AuxValues>
 
       <Layout>

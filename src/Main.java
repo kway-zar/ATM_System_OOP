@@ -54,9 +54,10 @@ public class Main extends javax.swing.JFrame {
                         
                         
                         if(enterPinPage1.isLoggedIn() == true){
+                            pageIndex = 3;
                             info = enterPinPage1.getInfo();
                             enterPinPage1.setVisible(false);
-                            System.out.println(info.getName());
+                            //System.out.println(info.getName());
                             home1.setUsername(info.getName(), languageButton1.getLanguage());
                             home1.setVisible(true);
                             
@@ -158,7 +159,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void languageButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_languageButton1MouseEntered
-        // TODO add your handling code here:
+        
         taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 if(languageButton1.noMouseActivity() == true){
@@ -171,15 +172,13 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_languageButton1MouseEntered
 
     private void languageButton1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_languageButton1PropertyChange
-        // TODO add your handling code here:
+        
         if(enterPinPage1.isLoggedIn() == true){
             home1.setUsername(info.getName(), languageButton1.getLanguage());
         }
     }//GEN-LAST:event_languageButton1PropertyChange
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

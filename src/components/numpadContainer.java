@@ -47,7 +47,7 @@ public class numpadContainer extends javax.swing.JPanel {
             public void paintComponent(Graphics g){
                 Graphics2D g2 = (Graphics2D)g;
                 g2.setColor(new Color(0,0,0,60));
-                g2.fillRoundRect(0,0,getWidth(),getHeight(),15,15);
+                g2.fillRoundRect(0,0,getWidth(),getHeight(),45,45);
             }
 
         };
