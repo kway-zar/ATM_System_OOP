@@ -31,19 +31,11 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jTextField1" pref="363" max="32767" attributes="0"/>
-                          <Component id="jPanel1" pref="363" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="pinkButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="457" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jTextField1" pref="363" max="32767" attributes="0"/>
+                  <Component id="jPanel1" pref="363" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,9 +50,7 @@
               <Component id="jPanel1" min="-2" pref="2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="numpadContainer1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="pinkButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -126,15 +116,6 @@
       </Layout>
     </Container>
     <Component class="components.numpadContainer" name="numpadContainer1">
-    </Component>
-    <Component class="buttons.PinkButton" name="pinkButton1">
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pinkButton1MouseClicked"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new buttons.PinkButton()"/>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="pinkButton1.setLabelText(&quot;Done&quot;);"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
