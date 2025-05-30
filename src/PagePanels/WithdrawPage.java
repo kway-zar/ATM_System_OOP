@@ -43,8 +43,13 @@ public class WithdrawPage extends javax.swing.JPanel {
             }
 
         }; ;
-        valueButton1 = new components.ValueButton();
         valueButton2 = new components.ValueButton();
+        valueButton1 = new components.ValueButton();
+        valueButton3 = new components.ValueButton();
+        valueButton4 = new components.ValueButton();
+        valueButton5 = new components.ValueButton();
+        valueButton6 = new components.ValueButton();
+        valueButton7 = new components.ValueButton();
 
         jLabel1.setFont(new java.awt.Font("Garet", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,19 +70,10 @@ public class WithdrawPage extends javax.swing.JPanel {
             }
         });
 
-        valueButton1.setFont(new java.awt.Font("Garet", 1, 14));
-        valueButton1.setForeground(new java.awt.Color(255, 255, 255));
-        valueButton1.setText("100");
-        valueButton1.setRadius(50);
-        valueButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valueButton1ActionPerformed(evt);
-            }
-        });
-
-        valueButton2.setFont(new java.awt.Font("Garet", 1, 14));
+        valueButton2.setFont(new java.awt.Font("Garet", 1, 17));
         valueButton2.setForeground(new java.awt.Color(255, 255, 255));
         valueButton2.setText("500");
+        valueButton2.setPreferredSize(new java.awt.Dimension(76, 30));
         valueButton2.setRadius(50);
         valueButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,24 +81,97 @@ public class WithdrawPage extends javax.swing.JPanel {
             }
         });
 
+        valueButton1.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton1.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton1.setText("100");
+        valueButton1.setPreferredSize(new java.awt.Dimension(76, 30));
+        valueButton1.setRadius(50);
+        valueButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valueButton1ActionPerformed(evt);
+            }
+        });
+
+        valueButton3.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton3.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton3.setText("1000");
+        valueButton3.setPreferredSize(new java.awt.Dimension(76, 30));
+        valueButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valueButton3ActionPerformed(evt);
+            }
+        });
+
+        valueButton4.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton4.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton4.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton4.setText("2,000");
+        valueButton4.setPreferredSize(new java.awt.Dimension(76, 30));
+        valueButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valueButton4ActionPerformed(evt);
+            }
+        });
+
+        valueButton5.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton5.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton5.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton5.setText("4,000");
+        valueButton5.setPreferredSize(new java.awt.Dimension(76, 30));
+
+        valueButton6.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton6.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton6.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton6.setText("5,000");
+        valueButton6.setPreferredSize(new java.awt.Dimension(76, 30));
+
+        valueButton7.setFont(new java.awt.Font("Garet", 1, 17));
+        valueButton7.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton7.setForeground(new java.awt.Color(255, 255, 255));
+        valueButton7.setText("10,000");
+        valueButton7.setPreferredSize(new java.awt.Dimension(76, 30));
+
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(valueButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(valueButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(valueButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valueButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valueButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valueButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(valueButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(valueButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(valueButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(104, 104, 104)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valueButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(valueButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valueButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valueButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -111,27 +180,23 @@ public class WithdrawPage extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(758, 758, 758)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(757, 757, 757)
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(numpadContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54))))
+                        .addComponent(numpadContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addContainerGap(116, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -157,6 +222,14 @@ public class WithdrawPage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_valueButton1ActionPerformed
 
+    private void valueButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valueButton3ActionPerformed
+
+    private void valueButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valueButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
@@ -166,5 +239,10 @@ public class WithdrawPage extends javax.swing.JPanel {
     private components.numpadContainer numpadContainer2;
     private components.ValueButton valueButton1;
     private components.ValueButton valueButton2;
+    private components.ValueButton valueButton3;
+    private components.ValueButton valueButton4;
+    private components.ValueButton valueButton5;
+    private components.ValueButton valueButton6;
+    private components.ValueButton valueButton7;
     // End of variables declaration//GEN-END:variables
 }
