@@ -31,7 +31,6 @@ public class LanguageButton extends javax.swing.JPanel {
         setBackground(new Color(0,0,0,0));
         initComponents();
         
-   
     }
     public String getLanguage(){
         return languages[currentLanguage];

@@ -15,9 +15,25 @@ import java.awt.Graphics2D;
 public class WithdrawPage extends javax.swing.JPanel {
 
     /**
+     * @param index the index to set
+     */
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    /**
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    /**
      * Creates new form Withdraw
      */
+    private int index = 4;
     public WithdrawPage() {
+        setOpaque(false);
         initComponents();
     }
 
@@ -61,6 +77,12 @@ public class WithdrawPage extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/left.png"))); // NOI18N
         jLabel1.setText("BACK");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Garet", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -323,6 +345,15 @@ public class WithdrawPage extends javax.swing.JPanel {
         jLabel4.setText("$10,000.00");
     }//GEN-LAST:event_valueButton7ActionPerformed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        setIndex(3);
+        System.out.println("Mouse Clicked:" + getIndex());
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+    public javax.swing.JLabel getBackButton() {
+        return jLabel1;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
