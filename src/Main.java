@@ -54,10 +54,10 @@ public class Main extends javax.swing.JFrame {
                         
                         
                         if(enterPinPage1.isLoggedIn() == true){
-                            pageIndex++;
+                            pageIndex = 3;
                             info = enterPinPage1.getInfo();
                             enterPinPage1.setVisible(false);
-                            System.out.println(info.getName());
+                            //System.out.println(info.getName());
                             home1.setUsername(info.getName(), languageButton1.getLanguage());
                             home1.setVisible(true);
                             
