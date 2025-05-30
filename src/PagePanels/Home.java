@@ -13,6 +13,14 @@ import java.awt.Graphics;
  */
 public class Home extends javax.swing.JPanel {
 
+    /**
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    private int index = 2;
 
     public void setUsername(String username, String language) {
         this.username = username;

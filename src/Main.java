@@ -54,6 +54,7 @@ public class Main extends javax.swing.JFrame {
                         
                         
                         if(enterPinPage1.isLoggedIn() == true){
+                            pageIndex++;
                             info = enterPinPage1.getInfo();
                             enterPinPage1.setVisible(false);
                             System.out.println(info.getName());
