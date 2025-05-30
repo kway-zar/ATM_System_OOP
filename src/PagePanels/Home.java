@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -50,16 +51,18 @@ public class Home extends javax.swing.JPanel {
 
     
     private String username = "";
+    JPanel[] p = new JPanel[4];
     public Home() {
+        
         
         setOpaque(false);
         initComponents();
+        p[0] = jPanel1; p[1] = withdrawPage1;
         withdrawPage1.setVisible(false);
         withdrawPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             if (SwingUtilities.isLeftMouseButton(evt)) {
-                withdrawPage1.setVisible(false); 
-                jPanel1.setVisible(true);
+                disablePanelsExcept(0);
             }
         }
     });
@@ -68,7 +71,17 @@ public class Home extends javax.swing.JPanel {
         
     }
 
+    public void disablePanelsExcept(int index){
+        for(int i = 0; i < p.length - 1; i++){
+            if(i != index){
+                if(p[i] != null){
+                    p[i].setVisible(false);
+                }
+            }
+            else {p[i].setVisible(true);}
+        }
     
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -318,8 +331,7 @@ public class Home extends javax.swing.JPanel {
     private void background2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseClicked
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
-            jPanel1.setVisible(false);
-            withdrawPage1.setVisible(true);
+            disablePanelsExcept(1);
         }
     }//GEN-LAST:event_background2MouseClicked
 
