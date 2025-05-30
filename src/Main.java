@@ -48,7 +48,7 @@ public class Main extends javax.swing.JFrame {
                     if(enterCardPage1.isNext() == true){
                         pageIndex++;
                         enterCardPage1.setVisible(false);
-                        enterPinPage1.setVisible(false);
+                        enterPinPage1.setVisible(true);
                         enterPinPage1.setCardNo(enterCardPage1.getCardNo());
                         
                         
