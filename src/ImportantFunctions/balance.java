@@ -15,7 +15,7 @@ public class balance {
             System.out.println("User Name: " + info.getPIN_CODE()); 
             System.out.println("User Name: " + info.getAccountBalance()); 
             
-            for (userTransactions transaction : info.transactions) {
+            for (userTransactions transaction : info.getTransactions()) {
                 System.out.println("Transaction Date: " + transaction.date);
                 System.out.println("Transaction Time: " + transaction.time);
                 System.out.println("Transaction Amount: " + transaction.money);
