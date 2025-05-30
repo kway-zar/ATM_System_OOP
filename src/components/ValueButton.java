@@ -104,6 +104,7 @@ public class ValueButton extends JButton {
     
     public ValueButton() {
        // color=Color.GRAY;
+        setOpaque(false);
         colorOver=new Color(255, 255, 255);
         borderColor= new Color(255, 255, 255);
         setContentAreaFilled(false);
@@ -122,7 +123,7 @@ public class ValueButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(borderColor);
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 30, 30);
-        g2.setColor(getBackground());
+        g2.setColor(new Color(0,0,0,220));
         g2.fillRoundRect(2, 2, getWidth() - 4, getHeight() - 4, 30, 30);
  
         super.paintComponent(grphcs); 
