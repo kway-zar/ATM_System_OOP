@@ -43,7 +43,7 @@ public class numpadContainer extends javax.swing.JPanel {
             public void paintComponent(Graphics g){
                 Graphics2D g2 = (Graphics2D)g;
                 g2.setColor(new Color(0,0,0,60));
-                g2.fillRoundRect(0,0,getWidth(),getHeight(),15,15);
+                g2.fillRoundRect(0,0,getWidth(),getHeight(),45,45);
             }
 
         };
@@ -55,9 +55,7 @@ public class numpadContainer extends javax.swing.JPanel {
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(numpad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(numpad1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
