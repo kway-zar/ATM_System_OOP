@@ -5,6 +5,7 @@
 package PagePanels;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,7 +76,6 @@ public class Deposit extends javax.swing.JPanel {
 
         numpadContainer1 = new components.numpadContainer();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         background1 = new components.background(){
             @Override
             public void paintComponent(Graphics g) {
@@ -86,7 +86,6 @@ public class Deposit extends javax.swing.JPanel {
             }
 
         };
-        depositamm = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         onehando = new components.ValueButton();
         onetao = new components.ValueButton();
@@ -95,188 +94,179 @@ public class Deposit extends javax.swing.JPanel {
         fortao = new components.ValueButton();
         faitao = new components.ValueButton();
         tentao = new components.ValueButton();
-        jTextField2 = new javax.swing.JTextField();
-        button1 = new components.Button();
+        printrec = new javax.swing.JCheckBox();
+        depositamm = new javax.swing.JLabel();
+        balamm = new javax.swing.JLabel();
 
-        setForeground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 0, 0, 0));
+        setForeground(new Color(0, 0, 0, 0));
+        setPreferredSize(new java.awt.Dimension(1048, 562));
 
-        jLabel1.setFont(new java.awt.Font("Garet Heavy", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garet Book", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cash Deposit");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setOpaque(false);
-
-        depositamm.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        depositamm.setForeground(new java.awt.Color(40, 40, 40));
-        depositamm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositammActionPerformed(evt);
-            }
-        });
+        background1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        background1.setPreferredSize(new java.awt.Dimension(566, 309));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
 
         onehando.setFont(new java.awt.Font("Garet", 1, 14));
         onehando.setForeground(new java.awt.Color(255,255,255));
         onehando.setText("100");
-        onehando.setRadius(50);
+        onehando.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        onehando.setPreferredSize(new java.awt.Dimension(130, 30));
+        onehando.setRadius(30);
         onehando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onehandoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         onetao.setText("1000");
-        onetao.setRadius(50);
+        onetao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        onetao.setPreferredSize(new java.awt.Dimension(130, 30));
+        onetao.setRadius(30);
         onetao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onetaoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         fivehando.setText("500");
-        fivehando.setRadius(50);
+        fivehando.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        fivehando.setPreferredSize(new java.awt.Dimension(130, 30));
+        fivehando.setRadius(30);
         fivehando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fivehandoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         totao.setText("2000");
-        totao.setRadius(50);
+        totao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        totao.setPreferredSize(new java.awt.Dimension(160, 30));
+        totao.setRadius(30);
         totao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totaoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         fortao.setText("4000");
-        fortao.setRadius(50);
+        fortao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        fortao.setPreferredSize(new java.awt.Dimension(160, 30));
+        fortao.setRadius(30);
         fortao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fortaoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         faitao.setText("5000");
-        faitao.setRadius(50);
+        faitao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        faitao.setPreferredSize(new java.awt.Dimension(160, 30));
+        faitao.setRadius(30);
         faitao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 faitaoActionPerformed(evt);
             }
         });
 
-        onehando.setFont(new java.awt.Font("Garet", 1, 14));
-        onehando.setForeground(new java.awt.Color(255,255,255));
+        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando1.setForeground(new java.awt.Color(255,255,255));
         tentao.setText("10000");
-        tentao.setRadius(50);
+        tentao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        tentao.setPreferredSize(new java.awt.Dimension(160, 30));
+        tentao.setRadius(30);
         tentao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tentaoActionPerformed(evt);
             }
         });
 
+        printrec.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        printrec.setText("Print Reciept");
+        printrec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printrecActionPerformed(evt);
+            }
+        });
+
+        depositamm.setFont(new java.awt.Font("Garet Book", 0, 36)); // NOI18N
+
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(depositamm)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(printrec)
+                .addGap(26, 26, 26))
+            .addGroup(background1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(77, 77, 77))
+                        .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(background1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(depositamm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(depositamm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositamm, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                    .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(printrec)
+                .addGap(23, 23, 23))
         );
 
-        jTextField2.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(40, 40, 40));
-        jTextField2.setText("50,000,000,000,000.00");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        button1.setText("button1");
-        button1.setRadius(50);
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
+        balamm.setFont(new java.awt.Font("Garet Book", 0, 36)); // NOI18N
+        balamm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        balamm.setText("50,000,000,000,000.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -284,42 +274,29 @@ public class Deposit extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(numpadContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 69, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(numpadContainer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(balamm, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(numpadContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(balamm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numpadContainer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(background1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void depositammActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositammActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_depositammActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
@@ -334,11 +311,6 @@ public class Deposit extends javax.swing.JPanel {
         // TODO add your handling code here:
         depositamm.setText("5000");
     }//GEN-LAST:event_faitaoActionPerformed
-
-    private void onehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onehandoActionPerformed
-        // TODO add your handling code here:
-        depositamm.setText("100");
-    }//GEN-LAST:event_onehandoActionPerformed
 
     private void fivehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fivehandoActionPerformed
         // TODO add your handling code here:
@@ -360,22 +332,44 @@ public class Deposit extends javax.swing.JPanel {
         depositamm.setText("10000");
     }//GEN-LAST:event_tentaoActionPerformed
 
+    private void printrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printrecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_printrecActionPerformed
+
+    private void onehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onehandoActionPerformed
+        // TODO add your handling code here:
+        depositamm.setText("100");
+    }//GEN-LAST:event_onehandoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
-    private components.Button button1;
-    private javax.swing.JTextField depositamm;
+    private javax.swing.JLabel balamm;
+    private javax.swing.JLabel depositamm;
     private components.ValueButton faitao;
     private components.ValueButton fivehando;
     private components.ValueButton fortao;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField2;
     private components.numpadContainer numpadContainer1;
     private components.ValueButton onehando;
     private components.ValueButton onetao;
+    private javax.swing.JCheckBox printrec;
     private components.ValueButton tentao;
     private components.ValueButton totao;
     // End of variables declaration//GEN-END:variables
+
+    private static class fivehando1 {
+
+        private static void setFont(Font font) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private static void setForeground(Color color) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public fivehando1() {
+        }
+    }
 }
