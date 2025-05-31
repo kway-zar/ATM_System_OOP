@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/ATM_System.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/JSON_UserInfo.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/user_data/Accounts_Information.json</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/customException.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/Main.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/Home.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/WithdrawPage.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/EnterCardPage.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/EnterPinPage.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/numpadContainer.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/ValueButton.java</file>
             <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/buttons/LanguageButton.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/Circle.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/background.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/Main.java</file>
         </group>
     </open-files>
 </project-private>
