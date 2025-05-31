@@ -16,9 +16,9 @@ public class balance {
 
             for (userTransactions transaction : info.getTransactions()) {
                 System.out.println("-----------------------------");
-                System.out.println("Transaction Date: " + transaction.date);
-                System.out.println("Transaction Time: " + transaction.time);
-                System.out.println("Transaction Amount: " + transaction.money);
+                System.out.println("Transaction Date: " + transaction.getDate());
+                System.out.println("Transaction Time: " + transaction.getTime());
+                System.out.println("Transaction Amount: " + transaction.getMoney());
                 System.out.println("-----------------------------");
             }
         }

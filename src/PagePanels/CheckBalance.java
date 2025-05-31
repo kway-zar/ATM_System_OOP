@@ -4,10 +4,15 @@
  */
 package PagePanels;
 
+import ImportantFunctions.userInfo;
+import ImportantFunctions.userTransactions;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,13 +21,47 @@ import java.awt.RenderingHints;
 public class CheckBalance extends javax.swing.JPanel {
 
     /**
-     * Creates new form CheckBalance
+     * @param info the info to set
      */
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+
+    
     public CheckBalance() {
         setOpaque(false);
         initComponents();
+        reloadPage();
+        
     }
-
+    public void reloadPage(){
+        ActionListener loadBalance = (ActionEvent evt) -> {
+            if(info != null){
+                t = info.getTransactions();
+                BalanceNum.setText("$" + info.getAccountBalance());
+                TransacDate1.setText(t[0].getDate());
+                TransacDate2.setText(t[1].getDate());
+                TransacDate3.setText(t[2].getDate());
+                
+                TransacTime1.setText(t[0].getTime());
+                TransacTime2.setText(t[1].getTime());
+                TransacTime3.setText(t[2].getTime());
+                
+                moneyTrasac1.setText(t[0].getMoney());
+                moneyTrasac2.setText(t[1].getMoney());
+                moneyTrasac3.setText(t[2].getMoney());
+            }
+        };
+        Timer timer = new Timer(1400, loadBalance);
+        timer.start();
+    
+    }
+    public javax.swing.JLabel getBackButton() {
+        return jLabel1;
+    }
+    private userInfo info;
+    userTransactions t[];
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +77,7 @@ public class CheckBalance extends javax.swing.JPanel {
             public void paintComponent(Graphics g){
                 Graphics2D g2 = (Graphics2D)g;
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-                g2.setColor(new Color(0,0,0,190));
+                g2.setColor(new Color(0,0,0,150));
                 g2.fillRoundRect(0,0,getWidth(),getHeight(),20,20);
             }
 
@@ -76,7 +115,7 @@ public class CheckBalance extends javax.swing.JPanel {
         BalanceNum.setBackground(new java.awt.Color(255, 255, 255));
         BalanceNum.setFont(new java.awt.Font("Garet Book", 0, 42)); // NOI18N
         BalanceNum.setForeground(new java.awt.Color(255, 255, 255));
-        BalanceNum.setText("$100,00");
+        BalanceNum.setText("Fetching");
 
         TransacIcon.setBackground(new java.awt.Color(255, 255, 255));
         TransacIcon.setFont(new java.awt.Font("Garet Book", 0, 35)); // NOI18N
@@ -85,40 +124,40 @@ public class CheckBalance extends javax.swing.JPanel {
 
         TransacDate1.setFont(new java.awt.Font("Garet Book", 0, 34)); // NOI18N
         TransacDate1.setForeground(new java.awt.Color(255, 255, 255));
-        TransacDate1.setText("Aug. 5, 2025");
+        TransacDate1.setText("Fetching");
 
         TransacDate2.setFont(new java.awt.Font("Garet Book", 0, 34)); // NOI18N
         TransacDate2.setForeground(new java.awt.Color(255, 255, 255));
-        TransacDate2.setText("July 36, 2025");
+        TransacDate2.setText("Fetching");
 
         TransacDate3.setBackground(new java.awt.Color(255, 255, 255));
         TransacDate3.setFont(new java.awt.Font("Garet Book", 0, 34)); // NOI18N
         TransacDate3.setForeground(new java.awt.Color(255, 255, 255));
-        TransacDate3.setText("July 36, 2025");
+        TransacDate3.setText("Fetching");
 
         TransacTime1.setFont(new java.awt.Font("Garet Book", 0, 11)); // NOI18N
         TransacTime1.setForeground(new java.awt.Color(89, 89, 89));
-        TransacTime1.setText("13:30");
+        TransacTime1.setText("Fetching");
 
         moneyTrasac1.setFont(new java.awt.Font("Garet Book", 0, 32)); // NOI18N
         moneyTrasac1.setForeground(new java.awt.Color(255, 255, 255));
-        moneyTrasac1.setText("+ $50,000");
+        moneyTrasac1.setText("Fetching");
 
         moneyTrasac2.setFont(new java.awt.Font("Garet Book", 0, 32)); // NOI18N
         moneyTrasac2.setForeground(new java.awt.Color(255, 255, 255));
-        moneyTrasac2.setText("+ $500");
+        moneyTrasac2.setText("Fetching");
 
         moneyTrasac3.setFont(new java.awt.Font("Garet Book", 0, 32)); // NOI18N
         moneyTrasac3.setForeground(new java.awt.Color(255, 255, 255));
-        moneyTrasac3.setText("- $3,000");
+        moneyTrasac3.setText("Fetching");
 
         TransacTime2.setFont(new java.awt.Font("Garet Book", 0, 11)); // NOI18N
         TransacTime2.setForeground(new java.awt.Color(89, 89, 89));
-        TransacTime2.setText("21:30");
+        TransacTime2.setText("Fetching");
 
         TransacTime3.setFont(new java.awt.Font("Garet Book", 0, 11)); // NOI18N
         TransacTime3.setForeground(new java.awt.Color(89, 89, 89));
-        TransacTime3.setText("17:30");
+        TransacTime3.setText("Fetching");
 
         Seperator.setBackground(new java.awt.Color(255, 255, 255));
         Seperator.setPreferredSize(new java.awt.Dimension(0, 3));
@@ -149,7 +188,7 @@ public class CheckBalance extends javax.swing.JPanel {
                     .addComponent(TransacTime1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TransacTime3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(TransacTime2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(moneyTrasac2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(moneyTrasac1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -159,17 +198,17 @@ public class CheckBalance extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Seperator, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                        .addComponent(Seperator, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
                         .addGap(21, 21, 21))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TransacIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(BalanceName, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BalanceNum, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(TransacIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,28 +244,30 @@ public class CheckBalance extends javax.swing.JPanel {
                         .addComponent(moneyTrasac2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(moneyTrasac3)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(109, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24))
+                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 

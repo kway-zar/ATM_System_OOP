@@ -21,24 +21,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="48" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="89" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace pref="109" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,7 +71,7 @@
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        Graphics2D g2 = (Graphics2D)g;&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.setColor(new Color(0,0,0,190));&#xa;        g2.fillRoundRect(0,0,getWidth(),getHeight(),20,20);&#xa;    }&#xa;&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        Graphics2D g2 = (Graphics2D)g;&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.setColor(new Color(0,0,0,150));&#xa;        g2.fillRoundRect(0,0,getWidth(),getHeight(),20,20);&#xa;    }&#xa;&#xa;}"/>
       </AuxValues>
 
       <Layout>
@@ -88,7 +90,7 @@
                       <Component id="TransacTime3" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="TransacTime2" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="244" max="32767" attributes="0"/>
+                  <EmptySpace pref="409" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="moneyTrasac2" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="moneyTrasac1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -100,12 +102,8 @@
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="Seperator" pref="773" max="32767" attributes="0"/>
+                          <Component id="Seperator" pref="943" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="TransacIcon" min="-2" pref="223" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -113,6 +111,10 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="BalanceNum" min="-2" pref="176" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="TransacIcon" min="-2" pref="255" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -160,7 +162,7 @@
                           <Component id="moneyTrasac3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="81" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -191,7 +193,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="$100,00"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacIcon">
@@ -216,7 +218,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Aug. 5, 2025"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacDate2">
@@ -227,7 +229,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="July 36, 2025"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacDate3">
@@ -241,7 +243,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="July 36, 2025"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacTime1">
@@ -252,7 +254,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="59" green="59" red="59" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="13:30"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="moneyTrasac1">
@@ -263,7 +265,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="+ $50,000"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="moneyTrasac2">
@@ -274,7 +276,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="+ $500"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="moneyTrasac3">
@@ -285,7 +287,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="- $3,000"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacTime2">
@@ -296,7 +298,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="59" green="59" red="59" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="21:30"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TransacTime3">
@@ -307,7 +309,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="59" green="59" red="59" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="17:30"/>
+            <Property name="text" type="java.lang.String" value="Fetching"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="Seperator">

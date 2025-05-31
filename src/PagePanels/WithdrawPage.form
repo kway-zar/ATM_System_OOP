@@ -56,21 +56,19 @@
                   <Component id="jLabel3" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="numpadContainer2" min="-2" pref="308" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="background1" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="button1" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="button1" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -361,7 +359,11 @@
           </Layout>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabel4.setText(numpadContainer2.getInput());"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel4.setFont(new java.awt.Font(&quot;Garet&quot;, 0, 36)); // NOI18N&#xa;jLabel4.setForeground(new java.awt.Color(255, 255, 255));"/>
           </AuxValues>
         </Component>
