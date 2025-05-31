@@ -10,12 +10,12 @@ package ImportantFunctions;
  */
 public class balance {            
         public void displayBalance(userInfo info){
-            System.out.println("User Name: " + info.getName()); 
-            System.out.println("User Name: " + info.getCARD_NO()); 
-            System.out.println("User Name: " + info.getPIN_CODE()); 
-            System.out.println("User Name: " + info.getAccountBalance()); 
             
+        System.out.println("Name: " + info.getName());
+        System.out.println("Current Balance: $" + info.getAccountBalance()); 
+
             for (userTransactions transaction : info.getTransactions()) {
+                System.out.println("-----------------------------");
                 System.out.println("Transaction Date: " + transaction.date);
                 System.out.println("Transaction Time: " + transaction.time);
                 System.out.println("Transaction Amount: " + transaction.money);
