@@ -1,23 +1,24 @@
-
-
-public class Deposit {
+public class DepositLogic {
 
     private JSON_UserInfo userInfoHandler;
     private String cardNo;
     private String pinCode;
     private double currentBalance;
 
-    public Deposit(JSON_UserInfo userInfoHandler, String cardNo, String pinCode, double currentBalance) {
+    public DepositLogic(JSON_UserInfo userInfoHandler, String cardNo, String pinCode, double currentBalance) {
         this.userInfoHandler = userInfoHandler;
         this.cardNo = cardNo;
         this.pinCode = pinCode;
         this.currentBalance = currentBalance;
     }
 
-    public double deposit(double amount) {
+    public double getCurrentBalance() {
+        return currentBalance;
+    }
+
+    public boolean deposit(double amount) {
         if (amount <= 0) {
-            System.out.print("Invalid Ammount");
-            return currentBalance;
+            return false;
         }
 
         currentBalance += amount;
@@ -27,7 +28,6 @@ public class Deposit {
         userInfoHandler.setIsGettingBalance(true, currentBalance);
         userInfoHandler.getUserInfo();
 
-        System.out.println("Deposit successful. New balance: " + currentBalance);
-        return currentBalance;
+        return true;
     }
 }
