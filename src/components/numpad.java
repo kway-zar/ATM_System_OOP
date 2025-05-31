@@ -20,9 +20,16 @@ import javax.swing.SwingUtilities;
 public class numpad extends javax.swing.JPanel {
 
     /**
+     * @param textString the textString to set
+     */
+    public void setTextString(String textString) {
+        this.textString = textString;
+    }
+
+    /**
      * Creates new form numpad
      */
-    String textString = "";
+    private String textString = "";
     public numpadButton[] numButton = new numpadButton[12];
     String numpadLabel[] = {"1","2","3","4","5","6","7","8","9","CLR", "0", "<"};
     public numpad() {
@@ -45,17 +52,17 @@ public class numpad extends javax.swing.JPanel {
                     if (SwingUtilities.isLeftMouseButton(evt)) {
                         System.out.println(numButton[tileIndex].getLabelText());
                         if(numButton[tileIndex].getLabelText().equals("CLR")){
-                            textString = "";
+                            setTextString("");
                         
                         } else if(numButton[tileIndex].getLabelText().equals("<")){
                             if(textString.length() == 0){
-                                textString = "";
+                                setTextString("");
                             } else {
-                                textString = textString.substring(0, textString.length() - 1);
+                                setTextString(textString.substring(0, textString.length() - 1));
                             }
                         } else {
                             if(textString.length() < 16){
-                                textString = textString.concat(numpadLabel[tileIndex]);
+                                setTextString(textString.concat(numpadLabel[tileIndex]));
                             }
                         }
                         System.out.println("Text:" + textString);
