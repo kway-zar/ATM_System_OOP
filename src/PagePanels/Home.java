@@ -149,6 +149,7 @@ public class Home extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Balance");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         transactionIcon1.setIconImage("/resource/balance.png");
 
@@ -197,6 +198,7 @@ public class Home extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Withdraw");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         transactionIcon2.setIconImage("/resource/withdraw.png");
 

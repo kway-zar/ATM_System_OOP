@@ -7,6 +7,7 @@ package PagePanels;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -35,6 +36,17 @@ public class WithdrawPage extends javax.swing.JPanel {
     public WithdrawPage() {
         setOpaque(false);
         initComponents();
+        
+        numpadContainer2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt){
+                if(SwingUtilities.isLeftMouseButton(evt)){
+                    jLabel4.setText(numpadContainer2.getInput());
+                
+                }
+            
+            }
+        
+        });
     }
 
     /**
