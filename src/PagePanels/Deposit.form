@@ -38,17 +38,17 @@
                   <Component id="background1" min="-2" max="-2" attributes="0"/>
                   <Component id="balamm" alignment="0" min="-2" pref="557" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="229" max="32767" attributes="0"/>
+              <EmptySpace pref="69" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="86" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="balamm" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="68" max="-2" attributes="0"/>
+              <EmptySpace pref="88" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="1" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="balamm" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -90,51 +90,56 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator1" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="printrec" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="onehando" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="fivehando" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="onetao" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="onehando" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="fivehando" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="onetao" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="faitao" min="-2" max="-2" attributes="0"/>
+                                      <Component id="totao" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fortao" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tentao" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="faitao" min="-2" max="-2" attributes="0"/>
-                              <Component id="totao" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fortao" min="-2" max="-2" attributes="0"/>
-                              <Component id="tentao" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="depositamm" min="-2" pref="510" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="52" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
-                      <Component id="depositamm" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="depositamm" min="-2" pref="62" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="depositamm" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
@@ -201,7 +206,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onetaoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="onetao.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;onetao.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="components.ValueButton" name="fivehando">
@@ -219,7 +224,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fivehandoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="components.ValueButton" name="totao">
@@ -237,7 +242,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totaoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="totao.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;totao.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="components.ValueButton" name="fortao">
@@ -255,7 +260,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fortaoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fortao.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fortao.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="components.ValueButton" name="faitao">
@@ -273,7 +278,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="faitaoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="faitao.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;faitao.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="components.ValueButton" name="tentao">
@@ -291,7 +296,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tentaoActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fivehando1.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;fivehando1.setForeground(new java.awt.Color(255,255,255));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tentao.setFont(new java.awt.Font(&quot;Garet&quot;, 1, 14));&#xa;tentao.setForeground(new java.awt.Color(255,255,255));"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JCheckBox" name="printrec">

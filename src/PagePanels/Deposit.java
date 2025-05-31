@@ -1,67 +1,75 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package PagePanels;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Margaret Anne Lasay
- */
-public class Deposit extends javax.swing.JPanel {
+public class Deposit extends JPanel {
 
-    javax.swing.Timer timer;
-    ActionListener taskPerformer;
-    
-    public boolean isNotNumpad;
+    private javax.swing.Timer timer;
+    private boolean isNotNumpad;
+
     public Deposit() {
         setOpaque(false);
+        setBackground(new Color(0, 0, 0, 0));
         initComponents();
-        taskPerformer = new ActionListener() {
+
+        background1.setOpaque(false);
+        background1.setBackground(new Color(0, 0, 0, 0));
+
+        // Focus listener only added once
+        background1.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                isNotNumpad = true;
+                numpadContainer1.clearInput();
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                isNotNumpad = false;
+            }
+        });
+
+        // Update logic
+        timer = new javax.swing.Timer(20, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                background1.addFocusListener(new FocusListener() {
-                @Override
-                public void focusGained(FocusEvent e) {
-                    isNotNumpad = true;    
-                    numpadContainer1.clearInput();
-                }
-
-                @Override
-                public void focusLost(FocusEvent e) {
-                    isNotNumpad = false;
-                }
-                
-             });
-                if(!numpadContainer1.getInput().isEmpty()&&!isNotNumpad){
-                
+                if (!numpadContainer1.getInput().isEmpty() && !isNotNumpad) {
                     depositamm.setText(numpadContainer1.getInput());
                 }
-
-                
-                
                 SwingUtilities.updateComponentTreeUI(depositamm);
-                
-                
             }
-        };
-        
-        timer = new javax.swing.Timer(20, taskPerformer);
+        });
         timer.start();
-    
-        initComponents();
     }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // Make sure proper painting occurs
+        g.setColor(new Color(0, 0, 0, 0));
+        g.fillRect(0, 0, getWidth(), getHeight());
+    }
+
+    // Action handlers for buttons
+    private void updateDeposit(String amount) {
+        depositamm.setText(amount);
+        numpadContainer1.clearInput();
+    }
+    // Receipt logic
+
+
+
+
+
+
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,8 +131,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        onetao.setFont(new java.awt.Font("Garet", 1, 14));
+        onetao.setForeground(new java.awt.Color(255,255,255));
         onetao.setText("1000");
         onetao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         onetao.setPreferredSize(new java.awt.Dimension(130, 30));
@@ -135,8 +143,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        fivehando.setFont(new java.awt.Font("Garet", 1, 14));
+        fivehando.setForeground(new java.awt.Color(255,255,255));
         fivehando.setText("500");
         fivehando.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         fivehando.setPreferredSize(new java.awt.Dimension(130, 30));
@@ -147,8 +155,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        totao.setFont(new java.awt.Font("Garet", 1, 14));
+        totao.setForeground(new java.awt.Color(255,255,255));
         totao.setText("2000");
         totao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         totao.setPreferredSize(new java.awt.Dimension(160, 30));
@@ -159,8 +167,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        fortao.setFont(new java.awt.Font("Garet", 1, 14));
+        fortao.setForeground(new java.awt.Color(255,255,255));
         fortao.setText("4000");
         fortao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         fortao.setPreferredSize(new java.awt.Dimension(160, 30));
@@ -171,8 +179,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        faitao.setFont(new java.awt.Font("Garet", 1, 14));
+        faitao.setForeground(new java.awt.Color(255,255,255));
         faitao.setText("5000");
         faitao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         faitao.setPreferredSize(new java.awt.Dimension(160, 30));
@@ -183,8 +191,8 @@ public class Deposit extends javax.swing.JPanel {
             }
         });
 
-        fivehando1.setFont(new java.awt.Font("Garet", 1, 14));
-        fivehando1.setForeground(new java.awt.Color(255,255,255));
+        tentao.setFont(new java.awt.Font("Garet", 1, 14));
+        tentao.setForeground(new java.awt.Color(255,255,255));
         tentao.setText("10000");
         tentao.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
         tentao.setPreferredSize(new java.awt.Dimension(160, 30));
@@ -209,41 +217,44 @@ public class Deposit extends javax.swing.JPanel {
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1)
+                .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(printrec)
                 .addGap(26, 26, 26))
             .addGroup(background1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(background1Layout.createSequentialGroup()
+                                .addComponent(onehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(fivehando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(onetao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(background1Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(faitao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fortao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tentao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addComponent(depositamm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(16, 16, 16))
+                        .addGap(18, 18, 18)
+                        .addComponent(depositamm, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(depositamm, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(depositamm, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
@@ -281,15 +292,15 @@ public class Deposit extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(balamm, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(balamm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(balamm, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(numpadContainer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,31 +316,37 @@ public class Deposit extends javax.swing.JPanel {
     private void totaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totaoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("2000");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_totaoActionPerformed
 
     private void faitaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faitaoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("5000");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_faitaoActionPerformed
 
     private void fivehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fivehandoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("500");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_fivehandoActionPerformed
 
     private void onetaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onetaoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("1000");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_onetaoActionPerformed
 
     private void fortaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fortaoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("4000");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_fortaoActionPerformed
 
     private void tentaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentaoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("10000");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_tentaoActionPerformed
 
     private void printrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printrecActionPerformed
@@ -339,6 +356,7 @@ public class Deposit extends javax.swing.JPanel {
     private void onehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onehandoActionPerformed
         // TODO add your handling code here:
         depositamm.setText("100");
+        numpadContainer1.clearInput();
     }//GEN-LAST:event_onehandoActionPerformed
 
 
@@ -358,18 +376,4 @@ public class Deposit extends javax.swing.JPanel {
     private components.ValueButton tentao;
     private components.ValueButton totao;
     // End of variables declaration//GEN-END:variables
-
-    private static class fivehando1 {
-
-        private static void setFont(Font font) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        private static void setForeground(Color color) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public fivehando1() {
-        }
-    }
 }
