@@ -105,9 +105,9 @@ class JSON_UserInfo {
                         for (Object tObject : t) {
                             JSONArray tr = (JSONArray) tObject;
                             transactions[i] = new userTransactions();
-                            transactions[i].date = (String) tr.get(0);
-                            transactions[i].time = (String) tr.get(1);
-                            transactions[i].money = ((Long) tr.get(2)).doubleValue();
+                            transactions[i].setDate((String) tr.get(0));
+                            transactions[i].setTime((String) tr.get(1));
+                            transactions[i].setMoney((String) tr.get(2));
                             i++;
 
                         }
