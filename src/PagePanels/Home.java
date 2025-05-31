@@ -372,6 +372,7 @@ public class Home extends javax.swing.JPanel {
     private void background2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseClicked
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
+            withdrawPage1.setInfo(info);
             disablePanelsExcept(2);
         }
     }//GEN-LAST:event_background2MouseClicked

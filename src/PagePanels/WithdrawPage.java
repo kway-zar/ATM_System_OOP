@@ -4,6 +4,7 @@
  */
 package PagePanels;
 
+import ImportantFunctions.userInfo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -31,13 +32,16 @@ public class WithdrawPage extends javax.swing.JPanel {
     public int getIndex() {
         return index;
     }
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
 
     /**
      * Creates new form Withdraw
      */
     Timer timer;
     ActionListener taskPerformer;
-    
+    private userInfo info;
     private int index = 4;
     
     public WithdrawPage() {
@@ -54,6 +58,13 @@ public class WithdrawPage extends javax.swing.JPanel {
                     jLabel4.setText("$0.00");
                     
                 }
+                if(info != null){
+                    String text = "$" + String.valueOf(info.getAccountBalance());
+                    jLabel3.setText(text);
+                
+                }
+                
+                
                 
             }
         };
@@ -290,6 +301,7 @@ public class WithdrawPage extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Garet", 0, 40)); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("$500,000.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
