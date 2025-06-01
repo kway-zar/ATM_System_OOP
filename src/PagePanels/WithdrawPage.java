@@ -4,13 +4,9 @@
  */
 package PagePanels;
 
-<<<<<<< Updated upstream
-import ImportantFunctions.userInfo;
-=======
 import ImportantFunctions.ATM_System;
 import ImportantFunctions.userInfo;
 import ImportantFunctions.Withdraw;
->>>>>>> Stashed changes
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -49,7 +45,6 @@ public class WithdrawPage extends javax.swing.JPanel {
      */
     Timer timer;
     ActionListener taskPerformer;
-    private userInfo info;
     private int index = 4;
     
     
