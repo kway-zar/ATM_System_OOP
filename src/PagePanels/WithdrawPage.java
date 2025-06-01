@@ -4,11 +4,15 @@
  */
 package PagePanels;
 
+import ImportantFunctions.ATM_System;
+import ImportantFunctions.userInfo;
+import ImportantFunctions.Withdraw;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -31,14 +35,18 @@ public class WithdrawPage extends javax.swing.JPanel {
     public int getIndex() {
         return index;
     }
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+    private userInfo info;
 
     /**
      * Creates new form Withdraw
      */
     Timer timer;
     ActionListener taskPerformer;
-    
     private int index = 4;
+    
     
     public WithdrawPage() {
         setOpaque(false);
@@ -53,6 +61,35 @@ public class WithdrawPage extends javax.swing.JPanel {
                 else{
                     jLabel4.setText("$0.00");
                     
+                }
+                if(info != null){
+                    jLabel3.setText("$" + String.valueOf(info.getAccountBalance()));
+                    button1.addMouseListener(new java.awt.event.MouseAdapter(){
+                        @Override
+                        public void mouseClicked(java.awt.event.MouseEvent evt){
+                            if(SwingUtilities.isLeftMouseButton(evt)){
+                                int lastIndex = jLabel4.getText().lastIndexOf(".");
+                                String trimmedStr = (lastIndex != -1) ? jLabel4.getText().substring(0, lastIndex) : jLabel4.getText();
+
+                                if(jLabel4.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) >= 100){
+                                        System.out.println("Withdraw");
+                                        Withdraw w = new Withdraw();
+                                        w.withdraw(Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")), info);
+                                        ATM_System atm = new ATM_System();
+                                        info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                        
+                                        jLabel4.setText("");
+
+                                }else {
+                                    //JOptionPane.showMessageDialog(null, "It must exceed or reach 100");
+                                    
+                                }
+
+                            }
+
+                        }
+                    });
+                
                 }
                 
             }
@@ -290,6 +327,7 @@ public class WithdrawPage extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Garet", 0, 40)); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("$500,000.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -321,17 +359,16 @@ public class WithdrawPage extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(numpadContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 

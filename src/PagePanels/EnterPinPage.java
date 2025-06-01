@@ -3,6 +3,7 @@ import ImportantFunctions.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -157,11 +158,12 @@ public class EnterPinPage extends javax.swing.JPanel {
         if(SwingUtilities.isLeftMouseButton(evt)){
             if(numpadContainer1.getInput().length() == 4){
 
-                atm.setUserInfo(cardNo, numpadContainer1.getInput());
+                atm.setUserInfo(cardNo, numpadContainer1.getInput(),false, 0);
                 this.info = atm.getInfo();
                 if(info.isCardFound() == true){
                     isLoggedIn = true;
                     this.info = getInfo();
+                    JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
                     //System.out.println(info.isCardFound());
                 }
 

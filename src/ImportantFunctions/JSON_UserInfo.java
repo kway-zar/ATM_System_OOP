@@ -2,6 +2,8 @@ package ImportantFunctions;
 
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
@@ -28,17 +30,20 @@ class JSON_UserInfo {
     public void setEnteredPIN(String enteredPIN) {
         this.enteredPIN = enteredPIN;
     }
-    public void updateBalance(JSONObject element){
+    public void updateBalance(JSONObject element, double newBalance){
         
         element.remove("balance");
         element.put("balance", newBalance);
+        System.out.println("Updating Balance\n New Balance:" + (double)element.get("balance"));
         
         setIsGettingBalance(false, 0); 
+        
     }
     
     public void setIsGettingBalance(boolean isGettingBalance, double newBalance) {
         this.isGettingBalance = isGettingBalance;
         this.newBalance = newBalance;
+        
     }
     public userInfo getUserInfo(){
         userInfo info = new userInfo();
@@ -59,15 +64,32 @@ class JSON_UserInfo {
         
         JSONArray ja = (JSONArray) jo.get("users");
 
-        info = binarySearch(ja, "CARD_NO", enteredCardNo, enteredPIN);
+        info = binarySearch(jo,ja, "CARD_NO", enteredCardNo, enteredPIN);
  
    
 
         return info;
     }
     
+    public void updateJSON(JSONArray arr, JSONObject jo){
+        try {
+            
 
-    public userInfo binarySearch(JSONArray arr, String target, String key, String enteredPIN){
+            FileWriter writer = new FileWriter("src/user_data/Accounts_Information.json");
+            jo.remove("users");
+            jo.put("users", arr);
+            writer.write(jo.toJSONString());
+            writer.flush();
+            writer.close();
+
+            System.out.println("JSON file updated.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+
+    public userInfo binarySearch(JSONObject jo, JSONArray arr, String target, String key, String enteredPIN){
         userInfo info = new userInfo();
         int low = 0;
         int high = arr.size() - 1;
@@ -87,16 +109,17 @@ class JSON_UserInfo {
                         info.setCardFound(true);
                         return info;
                     }
+                    if(isGettingBalance == true){
+                        updateBalance(element, newBalance);
+                        updateJSON(arr, jo);
+                            
+                    }
                     String pin = (String)element.get("PIN_CODE");
                     boolean pinMatch = pin.equals(enteredPIN);
 
                     if(pinMatch){
                         
-                        if(isGettingBalance){
-                            
-                            updateBalance(element);
-                            
-                        }
+                        
 
                         JSONArray t = (JSONArray) element.get("Transaction");
                         tArraySize = t.size();
@@ -105,9 +128,9 @@ class JSON_UserInfo {
                         for (Object tObject : t) {
                             JSONArray tr = (JSONArray) tObject;
                             transactions[i] = new userTransactions();
-                            transactions[i].date = (String) tr.get(0);
-                            transactions[i].time = (String) tr.get(1);
-                            transactions[i].money = ((Long) tr.get(2)).doubleValue();
+                            transactions[i].setDate((String) tr.get(0));
+                            transactions[i].setTime((String) tr.get(1));
+                            transactions[i].setMoney((String) tr.get(2));
                             i++;
 
                         }
@@ -118,7 +141,7 @@ class JSON_UserInfo {
                         info.setName((String) element.get("name"));
                         info.setTransactions(transactions);
                         info.setCardFound(true);
-                        JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
+                        
                         return info;
                         
                     }
@@ -150,8 +173,11 @@ class JSON_UserInfo {
     public boolean getCardFound(){
         return cardFound;
     }
+    
+    
 
 }
+
 
 
 

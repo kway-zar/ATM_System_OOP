@@ -5,12 +5,10 @@
         <group>
             <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/Home.java</file>
             <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/WithdrawPage.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/EnterCardPage.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/EnterPinPage.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/numpadContainer.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/components/ValueButton.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/buttons/LanguageButton.java</file>
-            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/Main.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/PagePanels/CheckBalance.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/ImportantFunctions/JSON_UserInfo.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/ImportantFunctions/Withdraw.java</file>
+            <file>file:/C:/Users/quasar/Documents/NetBeansProjects/ATM_System_OOP/src/ImportantFunctions/ATM_System.java</file>
         </group>
     </open-files>
 </project-private>

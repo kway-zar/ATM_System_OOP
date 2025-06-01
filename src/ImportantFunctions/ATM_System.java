@@ -36,19 +36,25 @@ public class ATM_System {
         return PIN_CODE;
     }
     
-
-    public userInfo setUserInfo(String enteredCardNo, String enteredPIN){
+    
+    public userInfo setUserInfo(String enteredCardNo, String enteredPIN, boolean updateBalance, double newAmount){
+        
         JSON_UserInfo userInfo = new JSON_UserInfo();
         this.info = new userInfo();
         try{
             
             userInfo.setEnteredCardNo(enteredCardNo);
             userInfo.setEnteredPIN(enteredPIN);
-            //userInfo.setIsGettingBalance(true, 100);//set the new balance
-                                                       
+
+            if(updateBalance == true){
+                userInfo.setIsGettingBalance(true, newAmount);//set the new balance
+                
+            }                                      
             
             info = userInfo.getUserInfo();
             if(userInfo.getCardFound()){
+                
+                
                 this.cardFound = userInfo.getCardFound();
                 this.CARD_NO = getInfo().getCARD_NO();
                 this.PIN_CODE = getInfo().getPIN_CODE();
@@ -60,7 +66,7 @@ public class ATM_System {
             }
             
             
-            System.out.println(getInfo().getAccountBalance());    
+            //System.out.println(getInfo().getAccountBalance());    
             return info;
 //            for(int i = 0; i < userInfo.arrSize();i++){
 //                System.out.println(info.transactions[i].date);
