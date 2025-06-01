@@ -51,14 +51,14 @@ public class WithdrawPage extends javax.swing.JPanel {
                 
                 }
                 else{
-                    jLabel4.setText("0");
+                    jLabel4.setText("$0.00");
                     
                 }
                 
             }
         };
         
-        timer = new Timer(20, taskPerformer);
+        timer = new Timer(500, taskPerformer);
         timer.start();
 
         
