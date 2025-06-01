@@ -4,12 +4,19 @@
  */
 package PagePanels;
 
+<<<<<<< Updated upstream
 import ImportantFunctions.userInfo;
+=======
+import ImportantFunctions.ATM_System;
+import ImportantFunctions.userInfo;
+import ImportantFunctions.Withdraw;
+>>>>>>> Stashed changes
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -35,6 +42,7 @@ public class WithdrawPage extends javax.swing.JPanel {
     public void setInfo(userInfo info) {
         this.info = info;
     }
+    private userInfo info;
 
     /**
      * Creates new form Withdraw
@@ -43,6 +51,7 @@ public class WithdrawPage extends javax.swing.JPanel {
     ActionListener taskPerformer;
     private userInfo info;
     private int index = 4;
+    
     
     public WithdrawPage() {
         setOpaque(false);
@@ -59,12 +68,34 @@ public class WithdrawPage extends javax.swing.JPanel {
                     
                 }
                 if(info != null){
-                    String text = "$" + String.valueOf(info.getAccountBalance());
-                    jLabel3.setText(text);
+                    jLabel3.setText("$" + String.valueOf(info.getAccountBalance()));
+                    button1.addMouseListener(new java.awt.event.MouseAdapter(){
+                        @Override
+                        public void mouseClicked(java.awt.event.MouseEvent evt){
+                            if(SwingUtilities.isLeftMouseButton(evt)){
+                                int lastIndex = jLabel4.getText().lastIndexOf(".");
+                                String trimmedStr = (lastIndex != -1) ? jLabel4.getText().substring(0, lastIndex) : jLabel4.getText();
+
+                                if(jLabel4.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) >= 100){
+                                        System.out.println("Withdraw");
+                                        Withdraw w = new Withdraw();
+                                        w.withdraw(Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")), info);
+                                        ATM_System atm = new ATM_System();
+                                        info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                        
+                                        jLabel4.setText("");
+
+                                }else {
+                                    //JOptionPane.showMessageDialog(null, "It must exceed or reach 100");
+                                    
+                                }
+
+                            }
+
+                        }
+                    });
                 
                 }
-                
-                
                 
             }
         };
