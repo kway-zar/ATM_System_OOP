@@ -3,6 +3,6 @@ Finals project for OOP of National University 1st year Students.
 # Leader
 Dela Cruz, Jose Guiller R.
 # Members
-Maranguis, Jeriana Yllen P.
-Lasay, Francis Adrian M.
-Landoy, Jonathan S.
+<br>Maranguis, Jeriana Yllen P.</br>
+<br>Lasay, Francis Adrian M.</br>
+<br>Landoy, Jonathan S.</br>

@@ -7,6 +7,10 @@ package PagePanels;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 /**
  *
@@ -31,11 +35,36 @@ public class WithdrawPage extends javax.swing.JPanel {
     /**
      * Creates new form Withdraw
      */
+    Timer timer;
+    ActionListener taskPerformer;
+    
     private int index = 4;
+    
     public WithdrawPage() {
         setOpaque(false);
         initComponents();
+        taskPerformer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if(!numpadContainer2.getInput().isEmpty()){
+                    jLabel4.setText("$" + numpadContainer2.getInput());
+                
+                }
+                else{
+                    jLabel4.setText("$0.00");
+                    
+                }
+                
+            }
+        };
+        
+        timer = new Timer(500, taskPerformer);
+        timer.start();
+
+        
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,6 +223,8 @@ public class WithdrawPage extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Garet", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText(numpadContainer2.getInput());
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -309,22 +340,22 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void valueButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton2ActionPerformed
-      jLabel4.setText("$500.00");
+      numpadContainer2.getNumpad().setTextString("500.00");
     }//GEN-LAST:event_valueButton2ActionPerformed
 
     private void valueButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton1ActionPerformed
-       jLabel4.setText("$100.00");
+      numpadContainer2.getNumpad().setTextString("100.00");
     }//GEN-LAST:event_valueButton1ActionPerformed
 
     public javax.swing.JLabel getBackButton() {
         return jLabel1;
     }
     private void valueButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton3ActionPerformed
-       jLabel4.setText("$1,000.00");
+       numpadContainer2.getNumpad().setTextString("1,000.00");
     }//GEN-LAST:event_valueButton3ActionPerformed
 
     private void valueButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton4ActionPerformed
-        jLabel4.setText("$2,000.00");
+        numpadContainer2.getNumpad().setTextString("2,000.00");
     }//GEN-LAST:event_valueButton4ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -332,15 +363,15 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void valueButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton5ActionPerformed
-        jLabel4.setText("$4,000.00");
+        numpadContainer2.getNumpad().setTextString("4,000.00");
     }//GEN-LAST:event_valueButton5ActionPerformed
 
     private void valueButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton6ActionPerformed
-        jLabel4.setText("$5,000.00");
+        numpadContainer2.getNumpad().setTextString("5,000.00");
     }//GEN-LAST:event_valueButton6ActionPerformed
 
     private void valueButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton7ActionPerformed
-        jLabel4.setText("$10,000.00");
+        numpadContainer2.getNumpad().setTextString("10,000.00");
     }//GEN-LAST:event_valueButton7ActionPerformed
 
 

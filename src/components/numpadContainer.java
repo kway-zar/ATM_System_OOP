@@ -7,8 +7,7 @@ package components;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
+
 
 /**
  *
@@ -28,6 +27,11 @@ public class numpadContainer extends javax.swing.JPanel {
     }
     public String getInput(){
         return numpad1.returnInputString();
+    }
+    
+    public components.numpad getNumpad(){
+        return numpad1;
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.

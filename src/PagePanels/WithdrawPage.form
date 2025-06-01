@@ -361,7 +361,11 @@
           </Layout>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabel4.setText(numpadContainer2.getInput());"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel4.setFont(new java.awt.Font(&quot;Garet&quot;, 0, 36)); // NOI18N&#xa;jLabel4.setForeground(new java.awt.Color(255, 255, 255));"/>
           </AuxValues>
         </Component>
