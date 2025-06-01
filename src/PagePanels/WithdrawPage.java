@@ -340,22 +340,22 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void valueButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton2ActionPerformed
-      numpadContainer2.getNumpad().setTextString("$500.00");
+      numpadContainer2.getNumpad().setTextString("500.00");
     }//GEN-LAST:event_valueButton2ActionPerformed
 
     private void valueButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton1ActionPerformed
-      numpadContainer2.getNumpad().setTextString("$100.00");
+      numpadContainer2.getNumpad().setTextString("100.00");
     }//GEN-LAST:event_valueButton1ActionPerformed
 
     public javax.swing.JLabel getBackButton() {
         return jLabel1;
     }
     private void valueButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton3ActionPerformed
-       numpadContainer2.getNumpad().setTextString("$1,000.00");
+       numpadContainer2.getNumpad().setTextString("1,000.00");
     }//GEN-LAST:event_valueButton3ActionPerformed
 
     private void valueButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton4ActionPerformed
-        numpadContainer2.getNumpad().setTextString("$2,000.00");
+        numpadContainer2.getNumpad().setTextString("2,000.00");
     }//GEN-LAST:event_valueButton4ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -363,15 +363,15 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void valueButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton5ActionPerformed
-        numpadContainer2.getNumpad().setTextString("$4,000.00");
+        numpadContainer2.getNumpad().setTextString("4,000.00");
     }//GEN-LAST:event_valueButton5ActionPerformed
 
     private void valueButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton6ActionPerformed
-        numpadContainer2.getNumpad().setTextString("$5,000.00");
+        numpadContainer2.getNumpad().setTextString("5,000.00");
     }//GEN-LAST:event_valueButton6ActionPerformed
 
     private void valueButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton7ActionPerformed
-        numpadContainer2.getNumpad().setTextString("$10,000.00");
+        numpadContainer2.getNumpad().setTextString("10,000.00");
     }//GEN-LAST:event_valueButton7ActionPerformed
 
 
