@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -81,6 +82,7 @@ public class Home extends javax.swing.JPanel {
         
         withdrawPage1.setVisible(false);
         checkBalance1.setVisible(false);
+        
         
         withdrawPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -4,6 +4,7 @@
  */
 package PagePanels;
 
+import ImportantFunctions.ATM_System;
 import ImportantFunctions.userInfo;
 import ImportantFunctions.userTransactions;
 import java.awt.Color;
@@ -50,6 +51,8 @@ public class CheckBalance extends javax.swing.JPanel {
                 moneyTrasac1.setText(t[0].getMoney());
                 moneyTrasac2.setText(t[1].getMoney());
                 moneyTrasac3.setText(t[2].getMoney());
+                ATM_System atm = new ATM_System();
+                info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
             }
         };
         Timer timer = new Timer(1400, loadBalance);
@@ -115,6 +118,7 @@ public class CheckBalance extends javax.swing.JPanel {
         BalanceNum.setBackground(new java.awt.Color(255, 255, 255));
         BalanceNum.setFont(new java.awt.Font("Garet Book", 0, 42)); // NOI18N
         BalanceNum.setForeground(new java.awt.Color(255, 255, 255));
+        BalanceNum.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         BalanceNum.setText("Fetching");
 
         TransacIcon.setBackground(new java.awt.Color(255, 255, 255));
@@ -204,7 +208,7 @@ public class CheckBalance extends javax.swing.JPanel {
                         .addGap(19, 19, 19)
                         .addComponent(BalanceName, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BalanceNum, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BalanceNum, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(TransacIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -11,5 +11,6 @@ package ImportantFunctions;
  * @author rowaine
  */
 abstract class balanceTransactions {
-    abstract void withdraw(double amount, userInfo info, JSON_UserInfo userInfo);
+    abstract void withdraw(double amount, userInfo info);
+    
 }

@@ -138,7 +138,7 @@ public class EnterCardPage extends javax.swing.JPanel {
             if(numpadContainer1.getInput().length() == 16){
                 ATM_System atm = new ATM_System();
                 userInfo info;
-                info = atm.setUserInfo(numpadContainer1.getInput(), null);
+                info = atm.setUserInfo(numpadContainer1.getInput(), null, false, 0);
 
                 if(info.isCardFound() == true){
                     this.next = atm.isCardFound();

@@ -9,11 +9,16 @@ package ImportantFunctions;
  *
  * @author rowaine
  */
-class Withdraw extends balanceTransactions {
+public class Withdraw extends balanceTransactions {
        @Override
-       void withdraw(double amount, userInfo info, JSON_UserInfo userInfo) {
+       public void withdraw(double amount, userInfo info) {
           double newBalance = info.getAccountBalance() - amount;
+          System.out.println(newBalance + "CARD_NO: " + info.getCARD_NO() +" PIN CODE:" +info.getPIN_CODE());
+          ATM_System atm = new ATM_System();
+          atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), true, newBalance);
+
           
-          userInfo.setIsGettingBalance(true, newBalance);//set the new balance 
+          
        }
+       
 }
