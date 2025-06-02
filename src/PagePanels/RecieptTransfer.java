@@ -13,13 +13,13 @@ import java.awt.RenderingHints;
  *
  * @author JA Landoy
  */
-public class Reciept extends javax.swing.JPanel {
+public class RecieptTransfer extends javax.swing.JPanel {
 
     /**
-     * Creates new form Reciept
+     * Creates new form RecieptTransfer
      */
-    public Reciept() {
-         setOpaque(false);
+    public RecieptTransfer() {
+        setOpaque(false);
         initComponents();
     }
 
@@ -37,6 +37,8 @@ public class Reciept extends javax.swing.JPanel {
             public void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                // White color with 60% opacity (255 * 0.6 ≈ 153)
                 g2.setColor(new Color(255, 255, 255, 153));
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
             }
@@ -44,24 +46,25 @@ public class Reciept extends javax.swing.JPanel {
         };
         NameSym = new javax.swing.JLabel();
         logo1 = new components.logo();
-        AccountNO = new javax.swing.JLabel();
+        AccountNo = new javax.swing.JLabel();
         Balance = new javax.swing.JLabel();
-        Deposit = new javax.swing.JLabel();
-        Withdrew = new javax.swing.JLabel();
-        nameName = new javax.swing.JLabel();
-        AccNum = new javax.swing.JLabel();
-        BalNum = new javax.swing.JLabel();
-        DepositNum = new javax.swing.JLabel();
-        WithdrewNum = new javax.swing.JLabel();
+        TranfferTo = new javax.swing.JLabel();
+        Transferred = new javax.swing.JLabel();
+        Name = new javax.swing.JLabel();
+        AccountNum = new javax.swing.JLabel();
+        BalanceNum = new javax.swing.JLabel();
+        TransferToNum = new javax.swing.JLabel();
+        TransferredNum = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Remaining = new javax.swing.JLabel();
+        Remaing = new javax.swing.JLabel();
         RemainingNum = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
         Time = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255,60));
+        jPanel1.setOpaque(false);
 
         NameSym.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
         NameSym.setForeground(new java.awt.Color(0, 0, 0));
@@ -70,41 +73,41 @@ public class Reciept extends javax.swing.JPanel {
         logo1.setMaximumSize(new java.awt.Dimension(152, 100));
         logo1.setMinimumSize(new java.awt.Dimension(152, 100));
 
-        AccountNO.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
-        AccountNO.setForeground(new java.awt.Color(0, 0, 0));
-        AccountNO.setText("Account No.:");
+        AccountNo.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
+        AccountNo.setForeground(new java.awt.Color(0, 0, 0));
+        AccountNo.setText("Account No.:");
 
         Balance.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
         Balance.setForeground(new java.awt.Color(0, 0, 0));
         Balance.setText("Balance:");
 
-        Deposit.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
-        Deposit.setForeground(new java.awt.Color(0, 0, 0));
-        Deposit.setText("Deposited:");
+        TranfferTo.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
+        TranfferTo.setForeground(new java.awt.Color(0, 0, 0));
+        TranfferTo.setText("Transfered to:");
 
-        Withdrew.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
-        Withdrew.setForeground(new java.awt.Color(0, 0, 0));
-        Withdrew.setText("Withdrew:");
+        Transferred.setFont(new java.awt.Font("Garet Book", 0, 22)); // NOI18N
+        Transferred.setForeground(new java.awt.Color(0, 0, 0));
+        Transferred.setText("Transferred:");
 
-        nameName.setFont(new java.awt.Font("Garet Book", 0, 26)); // NOI18N
-        nameName.setForeground(new java.awt.Color(0, 0, 0));
-        nameName.setText("Maranguis, Jeriana P. ");
+        Name.setFont(new java.awt.Font("Garet Book", 0, 26)); // NOI18N
+        Name.setForeground(new java.awt.Color(0, 0, 0));
+        Name.setText("Maranguis, Jeriana P. ");
 
-        AccNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
-        AccNum.setForeground(new java.awt.Color(0, 0, 0));
-        AccNum.setText("111111111111");
+        AccountNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
+        AccountNum.setForeground(new java.awt.Color(0, 0, 0));
+        AccountNum.setText("111111111111");
 
-        BalNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
-        BalNum.setForeground(new java.awt.Color(0, 0, 0));
-        BalNum.setText("$ 50, 000");
+        BalanceNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
+        BalanceNum.setForeground(new java.awt.Color(0, 0, 0));
+        BalanceNum.setText("$ 50, 000");
 
-        DepositNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
-        DepositNum.setForeground(new java.awt.Color(0, 0, 0));
-        DepositNum.setText("+ $500");
+        TransferToNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
+        TransferToNum.setForeground(new java.awt.Color(0, 0, 0));
+        TransferToNum.setText("32****90");
 
-        WithdrewNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
-        WithdrewNum.setForeground(new java.awt.Color(0, 0, 0));
-        WithdrewNum.setText("-$3,000");
+        TransferredNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
+        TransferredNum.setForeground(new java.awt.Color(0, 0, 0));
+        TransferredNum.setText("$3,000");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setPreferredSize(new java.awt.Dimension(0, 3));
@@ -120,13 +123,13 @@ public class Reciept extends javax.swing.JPanel {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        Remaining.setFont(new java.awt.Font("Garet Book", 0, 23)); // NOI18N
-        Remaining.setForeground(new java.awt.Color(0, 0, 0));
-        Remaining.setText("Remaining:");
+        Remaing.setFont(new java.awt.Font("Garet Book", 0, 23)); // NOI18N
+        Remaing.setForeground(new java.awt.Color(0, 0, 0));
+        Remaing.setText("Remaining:");
 
         RemainingNum.setFont(new java.awt.Font("Garet Book", 0, 25)); // NOI18N
         RemainingNum.setForeground(new java.awt.Color(0, 0, 0));
-        RemainingNum.setText("$45,000");
+        RemainingNum.setText("$53,000");
 
         Date.setFont(new java.awt.Font("Garet Book", 0, 13)); // NOI18N
         Date.setForeground(new java.awt.Color(0, 0, 0));
@@ -136,7 +139,7 @@ public class Reciept extends javax.swing.JPanel {
         Time.setForeground(new java.awt.Color(0, 0, 0));
         Time.setText("20:30");
 
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.setPreferredSize(new java.awt.Dimension(4, 50));
 
@@ -156,49 +159,45 @@ public class Reciept extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(logo1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(NameSym)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
-                        .addComponent(nameName))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Deposit)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Withdrew)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(WithdrewNum))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(DepositNum))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(AccountNO, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AccNum))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Balance)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BalNum))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Remaining)
+                                .addComponent(NameSym)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Name))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(AccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AccountNum))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(Remaing)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(RemainingNum))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Balance)
+                                    .addComponent(TranfferTo)
+                                    .addComponent(Transferred))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BalanceNum, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TransferToNum, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TransferredNum, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(Date)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(Time)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(241, 399, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(logo1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -209,35 +208,35 @@ public class Reciept extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(NameSym)
-                    .addComponent(nameName))
+                    .addComponent(Name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AccountNO)
-                    .addComponent(AccNum))
+                    .addComponent(AccountNo)
+                    .addComponent(AccountNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Balance)
-                    .addComponent(BalNum))
+                    .addComponent(BalanceNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Deposit)
-                    .addComponent(DepositNum))
+                    .addComponent(TranfferTo)
+                    .addComponent(TransferToNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Withdrew)
-                    .addComponent(WithdrewNum))
+                    .addComponent(Transferred)
+                    .addComponent(TransferredNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Remaining)
+                    .addComponent(Remaing)
                     .addComponent(RemainingNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Time)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
-                .addGap(40, 40, 40))
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -247,35 +246,35 @@ public class Reciept extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AccNum;
-    private javax.swing.JLabel AccountNO;
-    private javax.swing.JLabel BalNum;
+    private javax.swing.JLabel AccountNo;
+    private javax.swing.JLabel AccountNum;
     private javax.swing.JLabel Balance;
+    private javax.swing.JLabel BalanceNum;
     private javax.swing.JLabel Date;
-    private javax.swing.JLabel Deposit;
-    private javax.swing.JLabel DepositNum;
+    private javax.swing.JLabel Name;
     private javax.swing.JLabel NameSym;
-    private javax.swing.JLabel Remaining;
+    private javax.swing.JLabel Remaing;
     private javax.swing.JLabel RemainingNum;
     private javax.swing.JLabel Time;
-    private javax.swing.JLabel Withdrew;
-    private javax.swing.JLabel WithdrewNum;
+    private javax.swing.JLabel TranfferTo;
+    private javax.swing.JLabel TransferToNum;
+    private javax.swing.JLabel Transferred;
+    private javax.swing.JLabel TransferredNum;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private components.logo logo1;
-    private javax.swing.JLabel nameName;
     // End of variables declaration//GEN-END:variables
 }
