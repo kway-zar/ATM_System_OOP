@@ -4,9 +4,17 @@
  */
 package PagePanels;
 
+import ImportantFunctions.ATM_System;
+import ImportantFunctions.userInfo;
+import ImportantFunctions.Withdraw;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 /**
  *
@@ -27,15 +35,73 @@ public class WithdrawPage extends javax.swing.JPanel {
     public int getIndex() {
         return index;
     }
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+    private userInfo info;
 
     /**
      * Creates new form Withdraw
      */
+    Timer timer;
+    ActionListener taskPerformer;
     private int index = 4;
+    
+    
     public WithdrawPage() {
         setOpaque(false);
         initComponents();
+        taskPerformer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if(!numpadContainer2.getInput().isEmpty()){
+                    jLabel4.setText("$" + numpadContainer2.getInput());
+                
+                }
+                else{
+                    jLabel4.setText("$0.00");
+                    
+                }
+                if(info != null){
+                    jLabel3.setText("$" + String.valueOf(info.getAccountBalance()));
+                    button1.addMouseListener(new java.awt.event.MouseAdapter(){
+                        @Override
+                        public void mouseClicked(java.awt.event.MouseEvent evt){
+                            if(SwingUtilities.isLeftMouseButton(evt)){
+                                int lastIndex = jLabel4.getText().lastIndexOf(".");
+                                String trimmedStr = (lastIndex != -1) ? jLabel4.getText().substring(0, lastIndex) : jLabel4.getText();
+
+                                if(jLabel4.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) >= 100){
+                                        System.out.println("Withdraw");
+                                        Withdraw w = new Withdraw();
+                                        w.withdraw(Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")), info);
+                                        ATM_System atm = new ATM_System();
+                                        info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                        
+                                        jLabel4.setText("");
+
+                                }else {
+                                    //JOptionPane.showMessageDialog(null, "It must exceed or reach 100");
+                                    
+                                }
+
+                            }
+
+                        }
+                    });
+                
+                }
+                
+            }
+        };
+        
+        timer = new Timer(500, taskPerformer);
+        timer.start();
+
+        
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,6 +260,8 @@ public class WithdrawPage extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Garet", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText(numpadContainer2.getInput());
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -259,6 +327,7 @@ public class WithdrawPage extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Garet", 0, 40)); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("$500,000.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -290,17 +359,16 @@ public class WithdrawPage extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(numpadContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,22 +377,22 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void valueButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton2ActionPerformed
-      jLabel4.setText("$500.00");
+      numpadContainer2.getNumpad().setTextString("500.00");
     }//GEN-LAST:event_valueButton2ActionPerformed
 
     private void valueButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton1ActionPerformed
-       jLabel4.setText("$100.00");
+      numpadContainer2.getNumpad().setTextString("100.00");
     }//GEN-LAST:event_valueButton1ActionPerformed
 
     public javax.swing.JLabel getBackButton() {
         return jLabel1;
     }
     private void valueButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton3ActionPerformed
-       jLabel4.setText("$1,000.00");
+       numpadContainer2.getNumpad().setTextString("1,000.00");
     }//GEN-LAST:event_valueButton3ActionPerformed
 
     private void valueButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton4ActionPerformed
-        jLabel4.setText("$2,000.00");
+        numpadContainer2.getNumpad().setTextString("2,000.00");
     }//GEN-LAST:event_valueButton4ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -332,15 +400,15 @@ public class WithdrawPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void valueButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton5ActionPerformed
-        jLabel4.setText("$4,000.00");
+        numpadContainer2.getNumpad().setTextString("4,000.00");
     }//GEN-LAST:event_valueButton5ActionPerformed
 
     private void valueButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton6ActionPerformed
-        jLabel4.setText("$5,000.00");
+        numpadContainer2.getNumpad().setTextString("5,000.00");
     }//GEN-LAST:event_valueButton6ActionPerformed
 
     private void valueButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton7ActionPerformed
-        jLabel4.setText("$10,000.00");
+        numpadContainer2.getNumpad().setTextString("10,000.00");
     }//GEN-LAST:event_valueButton7ActionPerformed
 
 

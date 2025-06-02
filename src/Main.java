@@ -2,6 +2,7 @@
 import ImportantFunctions.userInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /*
@@ -54,14 +55,17 @@ public class Main extends javax.swing.JFrame {
                         
                         
                         if(enterPinPage1.isLoggedIn() == true){
+                            
                             pageIndex = 3;
                             info = enterPinPage1.getInfo();
+                            home1.setInfo(info);
+                            
                             enterPinPage1.setVisible(false);
                             //System.out.println(info.getName());
                             home1.setUsername(info.getName(), languageButton1.getLanguage());
                             home1.setVisible(true);
                             
-                            setInfo(info);
+                            
                             
                         }
 
@@ -115,7 +119,7 @@ public class Main extends javax.swing.JFrame {
 
         enterPinPage1.setVisible(false);
         circle1.add(enterPinPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 560));
         home1.setVisible(false);
         circle1.add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 

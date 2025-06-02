@@ -7,8 +7,7 @@ package components;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
+
 
 /**
  *
@@ -29,9 +28,10 @@ public class numpadContainer extends javax.swing.JPanel {
     public String getInput(){
         return numpad1.returnInputString();
     }
-    public void clearInput(){
     
-        numpad1.clearString();
+    public components.numpad getNumpad(){
+        return numpad1;
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,9 +59,7 @@ public class numpadContainer extends javax.swing.JPanel {
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(numpad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(numpad1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

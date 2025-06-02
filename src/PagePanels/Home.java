@@ -4,10 +4,12 @@
  */
 package PagePanels;
 
+import ImportantFunctions.userInfo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -17,6 +19,20 @@ import javax.swing.Timer;
  * @author quasar
  */
 public class Home extends javax.swing.JPanel {
+
+    /**
+     * @return the info
+     */
+    public userInfo getInfo() {
+        return info;
+    }
+
+    /**
+     * @param info the info to set
+     */
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
 
     /**
      * @param index the index to set
@@ -48,24 +64,41 @@ public class Home extends javax.swing.JPanel {
         }
         jLabel1.setText(formattedString);
     }
-
+    
+    private userInfo info;
     
     private String username = "";
     JPanel[] p = new JPanel[4];
+    
+    
+    
+    
     public Home() {
         
         
         setOpaque(false);
         initComponents();
-        p[0] = jPanel1; p[1] = withdrawPage1;
+        p[0] = jPanel1; p[1] = checkBalance1; p[2] = withdrawPage1;
+        
         withdrawPage1.setVisible(false);
+        checkBalance1.setVisible(false);
+        
+        
         withdrawPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            if (SwingUtilities.isLeftMouseButton(evt)) {
-                disablePanelsExcept(0);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (SwingUtilities.isLeftMouseButton(evt)) {
+                    disablePanelsExcept(0);
+                }
             }
-        }
-    });
+        });
+        checkBalance1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (SwingUtilities.isLeftMouseButton(evt)) {
+                    
+                    disablePanelsExcept(0);
+                }
+            }
+        });
 
         
         
@@ -87,6 +120,7 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        checkBalance1 = new PagePanels.CheckBalance();
         withdrawPage1 = new PagePanels.WithdrawPage();
         jPanel1 = new javax.swing.JPanel();
         background1 = new components.background(){
@@ -139,16 +173,24 @@ public class Home extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(withdrawPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+        add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -20, -1, -1));
+        add(withdrawPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, -1));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        background1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                background1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Garet Book", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Balance");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         transactionIcon1.setIconImage("/resource/balance.png");
 
@@ -160,7 +202,7 @@ public class Home extends javax.swing.JPanel {
         );
         transactionIcon1Layout.setVerticalGroup(
             transactionIcon1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 225, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
@@ -197,6 +239,7 @@ public class Home extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Withdraw");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         transactionIcon2.setIconImage("/resource/withdraw.png");
 
@@ -252,7 +295,7 @@ public class Home extends javax.swing.JPanel {
         );
         transactionIcon4Layout.setVerticalGroup(
             transactionIcon4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 225, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout background3Layout = new javax.swing.GroupLayout(background3);
@@ -331,9 +374,19 @@ public class Home extends javax.swing.JPanel {
     private void background2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background2MouseClicked
         // TODO add your handling code here:
         if(SwingUtilities.isLeftMouseButton(evt)){
-            disablePanelsExcept(1);
+            withdrawPage1.setInfo(info);
+            disablePanelsExcept(2);
         }
     }//GEN-LAST:event_background2MouseClicked
+
+    private void background1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background1MouseClicked
+        // TODO add your handling code here:
+        if(SwingUtilities.isLeftMouseButton(evt)){
+            checkBalance1.setInfo(info);
+            checkBalance1.reloadPage();
+            disablePanelsExcept(1);
+        }
+    }//GEN-LAST:event_background1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,6 +394,7 @@ public class Home extends javax.swing.JPanel {
     private components.background background2;
     private components.background background3;
     private components.background background4;
+    private PagePanels.CheckBalance checkBalance1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
