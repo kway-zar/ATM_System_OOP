@@ -121,7 +121,7 @@ public class Main extends javax.swing.JFrame {
         circle1.add(enterPinPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
         circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 560));
         home1.setVisible(false);
-        circle1.add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        circle1.add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
