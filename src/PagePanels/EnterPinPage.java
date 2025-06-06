@@ -45,11 +45,14 @@ public class EnterPinPage extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 if(!numpadContainer1.getInput().isEmpty() && numpadContainer1.getInput().length() > 4){
-                    jTextField1.setText(numpadContainer1.getInput().substring(0, 4));
+                   
+                    numpadContainer1.getNumpad().setTextString(numpadContainer1.getInput().substring(0,4));
+                    System.out.println("Input:" + numpadContainer1.getInput());
                 
-                }else {
-                    jTextField1.setText(numpadContainer1.getInput());
                 }
+                jTextField1.setText(numpadContainer1.getNumpad().getTextString());
+                
+                
                 
             }
         };

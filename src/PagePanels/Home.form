@@ -18,10 +18,24 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
+    <Component class="PagePanels.TransferPage" name="transferPage1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="0" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="PagePanels.Deposit" name="deposit1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="2" width="1070" height="570"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="PagePanels.CheckBalance" name="checkBalance1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="-20" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="-20" width="1070" height="590"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -201,6 +215,9 @@
           </SubComponents>
         </Container>
         <Container class="components.background" name="background3">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="background3MouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new components.background(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;&#xa;        g.setColor(new Color(0,0,0,60));&#xa;        g.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);&#xa;        transactionIcon4.setIconPosition(getWidth() / 4, getHeight()/ 4);&#xa;    }&#xa;&#xa;}"/>
           </AuxValues>
@@ -269,6 +286,9 @@
           </SubComponents>
         </Container>
         <Container class="components.background" name="background4">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="background4MouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new components.background(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;&#xa;        g.setColor(new Color(0,0,0,60));&#xa;        g.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);&#xa;    }&#xa;&#xa;}"/>
           </AuxValues>
