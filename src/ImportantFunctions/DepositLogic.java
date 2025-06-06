@@ -1,15 +1,10 @@
 package ImportantFunctions;
 
-
 import ImportantFunctions.*;
-import javax.swing.JOptionPane;
 
 public class DepositLogic {
 
-
-
     public void deposit(double amount, userInfo info) {
-        
         
         double newBalance = info.getAccountBalance() + amount;
         System.out.println(newBalance + "CARD_NO: " + info.getCARD_NO() + " PIN CODE:" + info.getPIN_CODE());

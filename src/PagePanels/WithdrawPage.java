@@ -47,8 +47,10 @@ public class WithdrawPage extends javax.swing.JPanel {
         setOpaque(false);
         initComponents();
         taskPerformer = new ActionListener() {
+            
             @Override
             public void actionPerformed(ActionEvent evt) {
+                
                 if(!numpadContainer2.getInput().isEmpty()){
                     jLabel4.setText("$" + numpadContainer2.getInput());
                 
@@ -58,6 +60,8 @@ public class WithdrawPage extends javax.swing.JPanel {
                     
                 }
                 if(info != null){
+                    ATM_System atm = new ATM_System();
+                    setInfo(atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0));
                     jLabel3.setText("$" + String.valueOf(info.getAccountBalance()));
                     button1.addMouseListener(new java.awt.event.MouseAdapter(){
                         @Override
@@ -74,8 +78,7 @@ public class WithdrawPage extends javax.swing.JPanel {
                                         boolean validAmount = w.withdraw(amount, info);
                                         if(validAmount == true){
                                             double oldBalance = info.getAccountBalance();
-                                            ATM_System atm = new ATM_System();
-                                            info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                            
                                             JOptionPane.showMessageDialog(null, "Successful Transaction");
                                             if(jCheckBox1.isSelected()){
                                                 Reciept reciept = new Reciept(info, oldBalance, amount, 1);

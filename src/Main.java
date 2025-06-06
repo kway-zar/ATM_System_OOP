@@ -35,6 +35,7 @@ public class Main extends javax.swing.JFrame {
     private userInfo info = new userInfo();
     int pageIndex = 0;
     public Main() {
+        
         initComponents();
         LoginSession();
         
@@ -114,11 +115,11 @@ public class Main extends javax.swing.JFrame {
         circle1.add(languageButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 6, -1, -1));
         circle1.add(dateAndTimeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
         circle1.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 60));
-        circle1.add(enterCardPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        circle1.add(enterCardPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 1080, -1));
 
         enterPinPage1.setVisible(false);
         circle1.add(enterPinPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 560));
+        circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1070, 560));
         home1.setVisible(false);
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
