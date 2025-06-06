@@ -18,7 +18,7 @@ import javax.swing.Timer;
 
 import PagePanels.Reciept;
 import java.awt.Component;
-import java.awt.Dimension;
+
 import java.awt.GridBagLayout;
 import javax.swing.JOptionPane;
 
@@ -71,32 +71,36 @@ public class WithdrawPage extends javax.swing.JPanel {
                                         double amount = Double.parseDouble(trimmedStr.replace("$", "").replace(",", ""));
                                         
                                         Withdraw w = new Withdraw();
-                                        w.withdraw(amount, info);
-                                        
-                                        double oldBalance = info.getAccountBalance();
-                                        ATM_System atm = new ATM_System();
-                                        info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
-                                        
-                                        if(jCheckBox1.isSelected()){
-                                            Reciept reciept = new Reciept(info, oldBalance, amount, 1);
- 
-                                            setLayout(new GridBagLayout());
+                                        boolean validAmount = w.withdraw(amount, info);
+                                        if(validAmount == true){
+                                            double oldBalance = info.getAccountBalance();
+                                            ATM_System atm = new ATM_System();
+                                            info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                            JOptionPane.showMessageDialog(null, "Successful Transaction");
+                                            if(jCheckBox1.isSelected()){
+                                                Reciept reciept = new Reciept(info, oldBalance, amount, 1);
 
-                                            // Remove every componentttsssss
-                                            Component[] components = getComponents();
-                                            for (Component component : components) {
-                                                remove(component);
-                                                
+                                                setLayout(new GridBagLayout());
+
+                                                // Remove every componentttsssss
+                                                Component[] components = getComponents();
+                                                for (Component component : components) {
+                                                    remove(component);
+
+                                                }
+
+                                                add(reciept);
+
+                                                //force UI to refresh
+                                                revalidate();
+                                                repaint();
+
                                             }
-                                            
-                                            add(reciept);
-                                            
-                                            //force UI to refresh
-                                            revalidate();
-                                            repaint();
-
-                                        }
                                         
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Entered amount exceeds your balance");
+                                            
+                                        }          
                                         
                                         jLabel4.setText("");
 
@@ -405,9 +409,7 @@ public class WithdrawPage extends javax.swing.JPanel {
       numpadContainer2.getNumpad().setTextString("100.00");
     }//GEN-LAST:event_valueButton1ActionPerformed
 
-    public javax.swing.JLabel getBackButton() {
-        return jLabel1;
-    }
+
     private void valueButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton3ActionPerformed
        numpadContainer2.getNumpad().setTextString("1,000.00");
     }//GEN-LAST:event_valueButton3ActionPerformed
@@ -431,7 +433,9 @@ public class WithdrawPage extends javax.swing.JPanel {
     private void valueButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueButton7ActionPerformed
         numpadContainer2.getNumpad().setTextString("10,000.00");
     }//GEN-LAST:event_valueButton7ActionPerformed
-
+    public javax.swing.JLabel getBackButton() {
+        return jLabel1;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;

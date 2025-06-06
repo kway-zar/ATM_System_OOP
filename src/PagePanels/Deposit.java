@@ -1,52 +1,107 @@
 package PagePanels;
 import ImportantFunctions.*;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 public class Deposit extends JPanel {
 
-    private javax.swing.Timer timer;
-    private boolean isNotNumpad;
+    public void setInfo(userInfo info) {
+        this.info = info;
+    }
+    private userInfo info;
+    Timer timer;
+    ActionListener taskPerformer;
 
     public Deposit() {
         setOpaque(false);
-        setBackground(new Color(0, 0, 0, 0));
         initComponents();
 
-        background1.setOpaque(false);
-        background1.setBackground(new Color(0, 0, 0, 0));
-
         // Focus listener only added once
-        background1.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                isNotNumpad = true;
-                numpadContainer1.clearInput();
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                isNotNumpad = false;
-            }
-        });
-
-        // Update logic
-        timer = new javax.swing.Timer(20, new ActionListener() {
+       taskPerformer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                if (!numpadContainer1.getInput().isEmpty() && !isNotNumpad) {
-                    depositamm.setText(numpadContainer1.getInput());
+                if(!numpadContainer2.getInput().isEmpty()){
+                    depositamm.setText("$" + numpadContainer2.getInput());
+                
                 }
-                SwingUtilities.updateComponentTreeUI(depositamm);
+                else{
+                    depositamm.setText("$0.00");
+                    
+                }
+                if(info != null){
+                    balamm.setText("$" + String.valueOf(info.getAccountBalance()));
+                    button1.addMouseListener(new java.awt.event.MouseAdapter(){
+                        @Override
+                        public void mouseClicked(java.awt.event.MouseEvent evt){
+                            if(SwingUtilities.isLeftMouseButton(evt)){
+                                int lastIndex = depositamm.getText().lastIndexOf(".");
+                                String trimmedStr = (lastIndex != -1) ? depositamm.getText().substring(0, lastIndex) : depositamm.getText();
+                                
+                                if(depositamm.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", ""))>= 40){
+                                        System.out.println("Deposit");
+                                        double amount = Double.parseDouble(trimmedStr.replace("$", "").replace(",", ""));
+                                        
+                                        DepositLogic d = new DepositLogic();
+                                        d.deposit(amount, info);
+                                        JOptionPane.showMessageDialog(null, "Successful Transaction");
+                                        double oldBalance = info.getAccountBalance();
+                                        ATM_System atm = new ATM_System();
+                                        info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
+                                        
+                                        if(printrec.isSelected()){
+                                            Reciept reciept = new Reciept(info, oldBalance, amount, 0);
+ 
+                                            setLayout(new GridBagLayout());
+
+                                            // Remove every componentttsssss
+                                            Component[] components = getComponents();
+                                            for (Component component : components) {
+                                                remove(component);
+                                                
+                                            }
+                                            
+                                            add(reciept);
+                                            
+                                            //force UI to refresh
+                                            revalidate();
+                                            repaint();
+
+                                        }
+                                        
+                                        
+                                        depositamm.setText("");
+
+                                }else if(depositamm.getText().length() > 1 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) < 40){
+                                    JOptionPane.showMessageDialog(null, "Deposit amount must exceed or reach 40");
+                                    depositamm.setText("");
+                                    
+                                }
+
+                            }
+
+                        }
+                    });
+                
+                }
+                
             }
-        });
+        };
+        
+        timer = new Timer(500, taskPerformer);
         timer.start();
     }
-
+    
+    public javax.swing.JLabel getBackButton() {
+        return jLabel2;
+    }
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // Make sure proper painting occurs
@@ -54,35 +109,12 @@ public class Deposit extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
-    // Action handlers for buttons
-    private void updateDeposit(String amount) {
-        depositamm.setText(amount);
-        numpadContainer1.clearInput();
-    }
-    // Receipt logic
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        numpadContainer1 = new components.numpadContainer();
+        numpadContainer2 = new components.numpadContainer();
         jLabel1 = new javax.swing.JLabel();
         background1 = new components.background(){
             @Override
@@ -113,6 +145,7 @@ public class Deposit extends JPanel {
         setPreferredSize(new java.awt.Dimension(1048, 562));
 
         jLabel1.setFont(new java.awt.Font("Garet Book", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cash Deposit");
 
@@ -204,6 +237,7 @@ public class Deposit extends JPanel {
         });
 
         printrec.setFont(new java.awt.Font("Garet Book", 0, 12)); // NOI18N
+        printrec.setForeground(new java.awt.Color(255, 255, 255));
         printrec.setText("Print Reciept");
         printrec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +246,7 @@ public class Deposit extends JPanel {
         });
 
         depositamm.setFont(new java.awt.Font("Garet Book", 0, 36)); // NOI18N
+        depositamm.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(546, 1));
@@ -291,6 +326,7 @@ public class Deposit extends JPanel {
         );
 
         balamm.setFont(new java.awt.Font("Garet Book", 0, 36)); // NOI18N
+        balamm.setForeground(new java.awt.Color(255, 255, 255));
         balamm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         balamm.setText("50,000,000,000,000.00");
 
@@ -314,7 +350,7 @@ public class Deposit extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -322,13 +358,13 @@ public class Deposit extends JPanel {
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(numpadContainer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(numpadContainer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(balamm, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +375,7 @@ public class Deposit extends JPanel {
                     .addComponent(balamm, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(numpadContainer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numpadContainer2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(background1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -355,38 +391,33 @@ public class Deposit extends JPanel {
 
     private void totaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totaoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("2000");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("200.00");
+        
     }//GEN-LAST:event_totaoActionPerformed
 
     private void faitaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faitaoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("5000");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("5000.00");
     }//GEN-LAST:event_faitaoActionPerformed
 
     private void fivehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fivehandoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("500");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("500.00");
     }//GEN-LAST:event_fivehandoActionPerformed
 
     private void onetaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onetaoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("1000");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("1000.00");
     }//GEN-LAST:event_onetaoActionPerformed
 
     private void fortaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fortaoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("4000");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("4000.00");
     }//GEN-LAST:event_fortaoActionPerformed
 
     private void tentaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentaoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("10000");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("10000.00");
     }//GEN-LAST:event_tentaoActionPerformed
 
     private void printrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printrecActionPerformed
@@ -395,8 +426,7 @@ public class Deposit extends JPanel {
 
     private void onehandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onehandoActionPerformed
         // TODO add your handling code here:
-        depositamm.setText("100");
-        numpadContainer1.clearInput();
+        numpadContainer2.getNumpad().setTextString("100.00");
     }//GEN-LAST:event_onehandoActionPerformed
 
 
@@ -411,7 +441,7 @@ public class Deposit extends JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private components.numpadContainer numpadContainer1;
+    private components.numpadContainer numpadContainer2;
     private components.ValueButton onehando;
     private components.ValueButton onetao;
     private javax.swing.JCheckBox printrec;

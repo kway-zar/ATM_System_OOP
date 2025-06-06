@@ -13,12 +13,17 @@ import PagePanels.Reciept;
  */
 public class Withdraw extends balanceTransactions {
        @Override
-       public void withdraw(double amount, userInfo info) {
+       public boolean withdraw(double amount, userInfo info) {
+          if(amount > info.getAccountBalance()){
+              return false;
+          
+          }
           double newBalance = info.getAccountBalance() - amount;
           System.out.println(newBalance + "CARD_NO: " + info.getCARD_NO() +" PIN CODE:" +info.getPIN_CODE());
           ATM_System atm = new ATM_System();
           atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), true, newBalance);
           
+          return true;
           
        }
        

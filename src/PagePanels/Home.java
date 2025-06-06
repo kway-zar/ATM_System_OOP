@@ -78,11 +78,11 @@ public class Home extends javax.swing.JPanel {
         
         setOpaque(false);
         initComponents();
-        p[0] = jPanel1; p[1] = checkBalance1; p[2] = withdrawPage1;
+        p[0] = jPanel1; p[1] = checkBalance1; p[2] = withdrawPage1; p[3] = deposit1;
         
         withdrawPage1.setVisible(false);
         checkBalance1.setVisible(false);
-        
+        deposit1.setVisible(false);
         
         withdrawPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -99,13 +99,21 @@ public class Home extends javax.swing.JPanel {
                 }
             }
         });
+        deposit1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (SwingUtilities.isLeftMouseButton(evt)) {
+                    
+                    disablePanelsExcept(0);
+                }
+            }
+        });
 
         
         
     }
 
     public void disablePanelsExcept(int index){
-        for(int i = 0; i < p.length - 1; i++){
+        for(int i = 0; i < p.length; i++){
             if(i != index){
                 if(p[i] != null){
                     p[i].setVisible(false);
@@ -120,6 +128,7 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        deposit1 = new PagePanels.Deposit();
         checkBalance1 = new PagePanels.CheckBalance();
         withdrawPage1 = new PagePanels.WithdrawPage();
         jPanel1 = new javax.swing.JPanel();
@@ -173,7 +182,8 @@ public class Home extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -20, -1, -1));
+        add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 1070, 570));
+        add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1070, 590));
         add(withdrawPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, -1));
 
         jPanel1.setOpaque(false);
@@ -320,6 +330,12 @@ public class Home extends javax.swing.JPanel {
 
         jPanel1.add(background3, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 111, -1, 376));
 
+        background4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                background4MouseClicked(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Garet Book", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -388,6 +404,14 @@ public class Home extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_background1MouseClicked
 
+    private void background4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background4MouseClicked
+        // TODO add your handling code here:
+        if(SwingUtilities.isLeftMouseButton(evt)){
+            deposit1.setInfo(info);
+            disablePanelsExcept(3);
+        }
+    }//GEN-LAST:event_background4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
@@ -395,6 +419,7 @@ public class Home extends javax.swing.JPanel {
     private components.background background3;
     private components.background background4;
     private PagePanels.CheckBalance checkBalance1;
+    private PagePanels.Deposit deposit1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
