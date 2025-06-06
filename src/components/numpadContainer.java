@@ -83,4 +83,9 @@ public class numpadContainer extends javax.swing.JPanel {
     private components.background background1;
     private components.numpad numpad1;
     // End of variables declaration//GEN-END:variables
+
+    public void clearInput() {
+    getNumpad().setTextString(""); // assuming inputField is a JTextField or similar
+}
+
 }

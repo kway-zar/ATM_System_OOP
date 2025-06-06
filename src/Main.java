@@ -94,6 +94,7 @@ public class Main extends javax.swing.JFrame {
         enterCardPage1 = new PagePanels.EnterCardPage();
         enterPinPage1 = new PagePanels.EnterPinPage();
         home1 = new PagePanels.Home();
+        deposit1 = new PagePanels.Deposit();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -120,6 +121,7 @@ public class Main extends javax.swing.JFrame {
         circle1.add(enterPinPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
         circle1.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 560));
         home1.setVisible(false);
+        circle1.add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -219,6 +221,7 @@ public class Main extends javax.swing.JFrame {
     private components.background background1;
     private components.Circle circle1;
     private components.DateAndTimeLabel dateAndTimeLabel1;
+    private PagePanels.Deposit deposit1;
     private PagePanels.EnterCardPage enterCardPage1;
     private PagePanels.EnterPinPage enterPinPage1;
     private PagePanels.Home home1;
