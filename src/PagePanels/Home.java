@@ -68,7 +68,7 @@ public class Home extends javax.swing.JPanel {
     private userInfo info;
     
     private String username = "";
-    JPanel[] p = new JPanel[4];
+    JPanel[] p = new JPanel[5];
     
     
     
@@ -78,11 +78,12 @@ public class Home extends javax.swing.JPanel {
         
         setOpaque(false);
         initComponents();
-        p[0] = jPanel1; p[1] = checkBalance1; p[2] = withdrawPage1; p[3] = deposit1;
+        p[0] = jPanel1; p[1] = checkBalance1; p[2] = withdrawPage1; p[3] = deposit1; p[4] = transferPage1;
         
         withdrawPage1.setVisible(false);
         checkBalance1.setVisible(false);
         deposit1.setVisible(false);
+        transferPage1.setVisible(false);
         
         withdrawPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,6 +101,14 @@ public class Home extends javax.swing.JPanel {
             }
         });
         deposit1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (SwingUtilities.isLeftMouseButton(evt)) {
+                    
+                    disablePanelsExcept(0);
+                }
+            }
+        });
+        transferPage1.getBackButton().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 if (SwingUtilities.isLeftMouseButton(evt)) {
                     
@@ -128,6 +137,7 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        transferPage1 = new PagePanels.TransferPage();
         deposit1 = new PagePanels.Deposit();
         checkBalance1 = new PagePanels.CheckBalance();
         withdrawPage1 = new PagePanels.WithdrawPage();
@@ -182,6 +192,7 @@ public class Home extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(transferPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 1070, 570));
         add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1070, 590));
         add(withdrawPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, -1));
@@ -288,6 +299,12 @@ public class Home extends javax.swing.JPanel {
         );
 
         jPanel1.add(background2, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 111, -1, -1));
+
+        background3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                background3MouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Garet Book", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -412,6 +429,14 @@ public class Home extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_background4MouseClicked
 
+    private void background3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_background3MouseClicked
+        // TODO add your handling code here:
+        if(SwingUtilities.isLeftMouseButton(evt)){
+            transferPage1.setInfo(info);
+            disablePanelsExcept(4);
+        }
+    }//GEN-LAST:event_background3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.background background1;
@@ -430,6 +455,7 @@ public class Home extends javax.swing.JPanel {
     private components.TransactionIcon transactionIcon2;
     private components.TransactionIcon transactionIcon3;
     private components.TransactionIcon transactionIcon4;
+    private PagePanels.TransferPage transferPage1;
     private PagePanels.WithdrawPage withdrawPage1;
     // End of variables declaration//GEN-END:variables
 }
