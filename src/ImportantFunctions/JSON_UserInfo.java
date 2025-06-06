@@ -1,9 +1,17 @@
 package ImportantFunctions;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import javax.swing.JOptionPane;
 
 
@@ -48,6 +56,7 @@ class JSON_UserInfo {
     public userInfo getUserInfo(){
         userInfo info = new userInfo();
         try{
+            
             info = returnInfo();
             
         } catch(Exception e){
@@ -58,34 +67,65 @@ class JSON_UserInfo {
     
     private userInfo returnInfo() throws Exception{
         userInfo info = new userInfo();
+        File accountsFile = getAccountsFile();
+        System.out.println("Loading accounts from: " + accountsFile.getAbsolutePath());
         
-        Object obj = new JSONParser().parse(new FileReader("src/user_data/Accounts_Information.json"));
+        Object obj = new JSONParser().parse(new FileReader(accountsFile));
         JSONObject jo = (JSONObject) obj;
-        
         JSONArray ja = (JSONArray) jo.get("users");
+        info = binarySearch(jo, ja, "CARD_NO", enteredCardNo, enteredPIN);
 
-        info = binarySearch(jo,ja, "CARD_NO", enteredCardNo, enteredPIN);
- 
-   
 
         return info;
     }
     
     public void updateJSON(JSONArray arr, JSONObject jo){
         try {
-            
-
-            FileWriter writer = new FileWriter("src/user_data/Accounts_Information.json");
+            File accountsFile = getAccountsFile();
+            File backup = new File(accountsFile.getParent(), "Accounts_Information.bak");
+            if (accountsFile.exists()) {
+                Files.copy(accountsFile.toPath(), backup.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }
+            FileWriter writer = new FileWriter(accountsFile);
             jo.remove("users");
             jo.put("users", arr);
             writer.write(jo.toJSONString());
             writer.flush();
             writer.close();
-
-            System.out.println("JSON file updated.");
+            System.out.println("JSON file updated at: " + accountsFile.getAbsolutePath());
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, 
+                "Error saving account information:\n" + e.getMessage(), 
+                "File Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
+    }
+    public File getAccountsFile() throws IOException {
+        String appData = System.getenv("APPDATA");
+        File appDir = new File(appData, "YourAppName");
+        File externalFile = new File(appDir, "Accounts_Information.json");
+        
+
+        if (externalFile.exists()) {
+            return externalFile;
+        }
+
+        File devFile1 = new File("user_data\\Accounts_Information.json"); // Project root
+        File devFile2 = new File("src\\user_data\\Accounts_Information.json"); // Source folder
+        
+        if (devFile1.exists()) return devFile1;
+        if (devFile2.exists()) return devFile2;
+        
+        appDir.mkdirs();
+        try (InputStream in = getClass().getResourceAsStream("/user_data/Accounts_Information.json");
+            OutputStream out = new FileOutputStream(externalFile)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+            }
+        }
+        return externalFile;
     }
     
 

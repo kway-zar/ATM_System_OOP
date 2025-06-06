@@ -37,6 +37,8 @@ public class Deposit extends JPanel {
                     
                 }
                 if(info != null){
+                    ATM_System atm = new ATM_System();
+                    setInfo(atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0));
                     balamm.setText("$" + String.valueOf(info.getAccountBalance()));
                     button1.addMouseListener(new java.awt.event.MouseAdapter(){
                         @Override

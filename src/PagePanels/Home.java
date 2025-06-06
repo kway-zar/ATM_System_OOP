@@ -194,7 +194,7 @@ public class Home extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(transferPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         add(deposit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 1070, 570));
-        add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1070, 590));
+        add(checkBalance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1070, 570));
         add(withdrawPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, -1));
 
         jPanel1.setOpaque(false);
