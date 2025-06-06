@@ -20,6 +20,13 @@ import javax.swing.SwingUtilities;
 public class numpad extends javax.swing.JPanel {
 
     /**
+     * @return the textString
+     */
+    public String getTextString() {
+        return textString;
+    }
+
+    /**
      * @param textString the textString to set
      */
     public void setTextString(String textString) {
@@ -55,17 +62,17 @@ public class numpad extends javax.swing.JPanel {
                             setTextString("");
                         
                         } else if(numButton[tileIndex].getLabelText().equals("<")){
-                            if(textString.length() == 0){
+                            if(getTextString().length() == 0){
                                 setTextString("");
                             } else {
-                                setTextString(textString.substring(0, textString.length() - 1));
+                                setTextString(getTextString().substring(0, getTextString().length() - 1));
                             }
                         } else {
-                            if(textString.length() < 16){
-                                setTextString(textString.concat(numpadLabel[tileIndex]));
+                            if(getTextString().length() < 16){
+                                setTextString(getTextString().concat(numpadLabel[tileIndex]));
                             }
                         }
-                        System.out.println("Text:" + textString);
+                        System.out.println("Text:" + getTextString());
                             
                         
                         
@@ -76,7 +83,7 @@ public class numpad extends javax.swing.JPanel {
         }
     }
     public String returnInputString(){
-        return textString;
+        return getTextString();
     
     }
     

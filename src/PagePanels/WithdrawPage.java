@@ -12,26 +12,24 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-/**
- *
- * @author rowaine
- */
+import PagePanels.Reciept;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import javax.swing.JOptionPane;
+
+
 public class WithdrawPage extends javax.swing.JPanel {
 
-    /**
-     * @param index the index to set
-     */
+
     public void setIndex(int index) {
         this.index = index;
     }
 
-    /**
-     * @return the index
-     */
     public int getIndex() {
         return index;
     }
@@ -40,9 +38,6 @@ public class WithdrawPage extends javax.swing.JPanel {
     }
     private userInfo info;
 
-    /**
-     * Creates new form Withdraw
-     */
     Timer timer;
     ActionListener taskPerformer;
     private int index = 4;
@@ -70,18 +65,44 @@ public class WithdrawPage extends javax.swing.JPanel {
                             if(SwingUtilities.isLeftMouseButton(evt)){
                                 int lastIndex = jLabel4.getText().lastIndexOf(".");
                                 String trimmedStr = (lastIndex != -1) ? jLabel4.getText().substring(0, lastIndex) : jLabel4.getText();
-
-                                if(jLabel4.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) >= 100){
+                                
+                                if(jLabel4.getText().length() > 0 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", ""))>= 100){
                                         System.out.println("Withdraw");
+                                        double amount = Double.parseDouble(trimmedStr.replace("$", "").replace(",", ""));
+                                        
                                         Withdraw w = new Withdraw();
-                                        w.withdraw(Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")), info);
+                                        w.withdraw(amount, info);
+                                        
+                                        double oldBalance = info.getAccountBalance();
                                         ATM_System atm = new ATM_System();
                                         info = atm.setUserInfo(info.getCARD_NO(), info.getPIN_CODE(), false, 0);
                                         
+                                        if(jCheckBox1.isSelected()){
+                                            Reciept reciept = new Reciept(info, oldBalance, amount, 1);
+ 
+                                            setLayout(new GridBagLayout());
+
+                                            // Remove every componentttsssss
+                                            Component[] components = getComponents();
+                                            for (Component component : components) {
+                                                remove(component);
+                                                
+                                            }
+                                            
+                                            add(reciept);
+                                            
+                                            //force UI to refresh
+                                            revalidate();
+                                            repaint();
+
+                                        }
+                                        
+                                        
                                         jLabel4.setText("");
 
-                                }else {
-                                    //JOptionPane.showMessageDialog(null, "It must exceed or reach 100");
+                                }else if(jLabel4.getText().length() > 1 && Integer.parseInt(trimmedStr.replace("$", "").replace(",", "")) < 100){
+                                    JOptionPane.showMessageDialog(null, "It must exceed or reach 100");
+                                    jLabel4.setText("");
                                     
                                 }
 
@@ -365,7 +386,7 @@ public class WithdrawPage extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))

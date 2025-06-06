@@ -4,10 +4,14 @@
  */
 package PagePanels;
 
+import ImportantFunctions.userInfo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -15,12 +19,32 @@ import java.awt.RenderingHints;
  */
 public class Reciept extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Reciept
-     */
-    public Reciept() {
-         setOpaque(false);
+
+    public Reciept(userInfo info, double oldBalance, double amount, int type) {
+        setOpaque(false);
         initComponents();
+        Withdrew.setVisible(false);
+        WithdrewNum.setVisible(false);
+        Deposit.setVisible(false);
+        DepositNum.setVisible(false);
+        
+        nameName.setText(info.getName());
+        AccNum.setText(info.getCARD_NO());
+        BalNum.setText("$" + String.valueOf(oldBalance));
+        if(type != 0){
+            WithdrewNum.setText("-$" + String.valueOf(amount));
+            Withdrew.setVisible(true);
+            WithdrewNum.setVisible(true);
+        } else {
+            
+            DepositNum.setText("+$" + String.valueOf(amount));
+            Deposit.setVisible(true);
+            DepositNum.setVisible(true);
+        
+        }
+        RemainingNum.setText("$" + info.getAccountBalance());
+        
+        
     }
 
     /**
@@ -57,7 +81,6 @@ public class Reciept extends javax.swing.JPanel {
         Remaining = new javax.swing.JLabel();
         RemainingNum = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
-        Time = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -100,11 +123,9 @@ public class Reciept extends javax.swing.JPanel {
 
         DepositNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
         DepositNum.setForeground(new java.awt.Color(0, 0, 0));
-        DepositNum.setText("+ $500");
 
         WithdrewNum.setFont(new java.awt.Font("Garet Book", 0, 21)); // NOI18N
         WithdrewNum.setForeground(new java.awt.Color(0, 0, 0));
-        WithdrewNum.setText("-$3,000");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setPreferredSize(new java.awt.Dimension(0, 3));
@@ -130,11 +151,6 @@ public class Reciept extends javax.swing.JPanel {
 
         Date.setFont(new java.awt.Font("Garet Book", 0, 13)); // NOI18N
         Date.setForeground(new java.awt.Color(0, 0, 0));
-        Date.setText("July 36,2025 ");
-
-        Time.setFont(new java.awt.Font("Garet Book", 0, 13)); // NOI18N
-        Time.setForeground(new java.awt.Color(0, 0, 0));
-        Time.setText("20:30");
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -148,7 +164,7 @@ public class Reciept extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 19, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -164,7 +180,7 @@ public class Reciept extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(NameSym)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                         .addComponent(nameName))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Deposit)
@@ -184,7 +200,7 @@ public class Reciept extends javax.swing.JPanel {
                         .addComponent(Balance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BalNum))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,10 +212,8 @@ public class Reciept extends javax.swing.JPanel {
                                 .addComponent(Date)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Time)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,25 +249,31 @@ public class Reciept extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Time)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                 .addGap(40, 40, 40))
         );
+
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm | E, dd MM");
+
+        String formattedDate = myDateObj.format(myFormatObj);
+        Date.setText(formattedDate);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(240, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(229, 229, 229))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -269,7 +289,6 @@ public class Reciept extends javax.swing.JPanel {
     private javax.swing.JLabel NameSym;
     private javax.swing.JLabel Remaining;
     private javax.swing.JLabel RemainingNum;
-    private javax.swing.JLabel Time;
     private javax.swing.JLabel Withdrew;
     private javax.swing.JLabel WithdrewNum;
     private javax.swing.JPanel jPanel1;
