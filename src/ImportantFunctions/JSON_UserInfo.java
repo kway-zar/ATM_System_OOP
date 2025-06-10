@@ -158,8 +158,6 @@ class JSON_UserInfo {
                     boolean pinMatch = pin.equals(enteredPIN);
 
                     if(pinMatch){
-                        
-                        
 
                         JSONArray t = (JSONArray) element.get("Transaction");
                         tArraySize = t.size();
@@ -174,7 +172,6 @@ class JSON_UserInfo {
                             i++;
 
                         }
-
                         info.setCARD_NO((String) element.get(target));
                         info.setPIN_CODE((String) element.get("PIN_CODE"));
                         info.setAccountBalance((double) element.get("balance"));
@@ -182,15 +179,11 @@ class JSON_UserInfo {
                         info.setTransactions(transactions);
                         info.setCardFound(true);
                         
-                        return info;
-                        
+                        return info; 
                     }
-                    
                     else {
                         throw new customException("PIN doesn't match");
                     }
-                    
-
 
                 } else if(compareResult > 0){
                     low = mid + 1;

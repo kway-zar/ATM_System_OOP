@@ -167,7 +167,7 @@ public class EnterPinPage extends javax.swing.JPanel {
                     isLoggedIn = true;
                     this.info = getInfo();
                     JOptionPane.showMessageDialog(null, "Loggin in", "Credentials Matched",JOptionPane.INFORMATION_MESSAGE);
-                    //System.out.println(info.isCardFound());
+                    
                 }
 
             }

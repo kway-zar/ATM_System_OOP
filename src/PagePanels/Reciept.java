@@ -254,7 +254,7 @@ public class Reciept extends javax.swing.JPanel {
         );
 
         LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm | E, dd MM");
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm | E, dd/MM");
 
         String formattedDate = myDateObj.format(myFormatObj);
         Date.setText(formattedDate);

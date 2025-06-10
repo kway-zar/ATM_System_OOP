@@ -20,38 +20,19 @@ import javax.swing.Timer;
  */
 public class Home extends javax.swing.JPanel {
 
-    /**
-     * @return the info
-     */
+
     public userInfo getInfo() {
         return info;
     }
 
-    /**
-     * @param info the info to set
-     */
+
     public void setInfo(userInfo info) {
         this.info = info;
     }
 
-    /**
-     * @param index the index to set
-     */
-    public void setIndex(int index) {
-        this.index = index;
-    }
 
-    /**
-     * @return the index
-     */
-    
-    
 
-    public int getIndex() {
-        return index;
-    }
 
-    private int index = 2;
 
     public void setUsername(String username, String language) {
         this.username = username;

@@ -52,28 +52,13 @@ public class ATM_System {
             }                                      
             
             info = userInfo.getUserInfo();
-            if(userInfo.getCardFound()){
-                
-                
+            if(userInfo.getCardFound()){              
                 this.cardFound = userInfo.getCardFound();
-                this.CARD_NO = getInfo().getCARD_NO();
-                this.PIN_CODE = getInfo().getPIN_CODE();
-                this.name = getInfo().getName();
-                this.cardFound = true;
-                this.accountBalance = getInfo().getAccountBalance();
-                
-            
+  
             }
-            
-            
-            //System.out.println(getInfo().getAccountBalance());    
+
             return info;
-//            for(int i = 0; i < userInfo.arrSize();i++){
-//                System.out.println(info.transactions[i].date);
-//                System.out.println(info.transactions[i].time);
-//                System.out.println(info.transactions[i].money);
-//            }
-//             
+    
             
         } catch(Exception e){
             e.printStackTrace();

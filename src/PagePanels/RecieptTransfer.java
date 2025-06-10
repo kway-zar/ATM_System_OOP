@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -59,7 +61,6 @@ public class RecieptTransfer extends javax.swing.JPanel {
         Remaing = new javax.swing.JLabel();
         RemainingNum = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
-        Time = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
@@ -133,11 +134,11 @@ public class RecieptTransfer extends javax.swing.JPanel {
 
         Date.setFont(new java.awt.Font("Garet Book", 0, 13)); // NOI18N
         Date.setForeground(new java.awt.Color(0, 0, 0));
-        Date.setText("July 36,2025 ");
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm | E, dd/MM");
 
-        Time.setFont(new java.awt.Font("Garet Book", 0, 13)); // NOI18N
-        Time.setForeground(new java.awt.Color(0, 0, 0));
-        Time.setText("20:30");
+        String formattedDate = myDateObj.format(myFormatObj);
+        Date.setText(formattedDate);
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -151,7 +152,7 @@ public class RecieptTransfer extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 19, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,7 +166,7 @@ public class RecieptTransfer extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(NameSym)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                                 .addComponent(Name))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(AccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,9 +192,7 @@ public class RecieptTransfer extends javax.swing.JPanel {
                                 .addComponent(Date)
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Time)
-                                .addGap(241, 399, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(logo1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,7 +233,6 @@ public class RecieptTransfer extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Time)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                 .addGap(58, 58, 58))
         );
@@ -268,7 +266,6 @@ public class RecieptTransfer extends javax.swing.JPanel {
     private javax.swing.JLabel NameSym;
     private javax.swing.JLabel Remaing;
     private javax.swing.JLabel RemainingNum;
-    private javax.swing.JLabel Time;
     private javax.swing.JLabel TranfferTo;
     private javax.swing.JLabel TransferToNum;
     private javax.swing.JLabel Transferred;
